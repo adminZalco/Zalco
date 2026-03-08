@@ -5,15 +5,22 @@
    ========================================================================= */
 
 :root {
-    /* Default Theme: Light (matching reference) */
-    --color-bg: hsl(0, 0%, 96%);
-    --color-surface: #FFFFFF;
-    --color-text-primary: #0F0F0F;
-    --color-text-secondary: #5A5A6E;
-    --color-accent: #7568ff;
-    --color-accent-light: #ebe9ff;
-    --color-border: #E8E8EE;
-    --color-surface-alt: #F3F2FF;
+    /* Backgrounds */
+    --bg-primary: hsl(0, 0%, 96%);
+    --bg-secondary: #FFFFFF;
+    --bg-tertiary: #F3F2FF;
+
+    /* Text (4 different colors) */
+    --text-primary: #0F0F0F;
+    --text-secondary: #5A5A6E;
+    --text-tertiary: #8A8A9E;
+    --text-quaternary: #C0C0D0;
+    --text-inverse: #FFFFFF;
+
+    /* Accents & Borders */
+    --accent-primary: #7568ff;
+    --accent-secondary: #ebe9ff;
+    --border-primary: #E8E8EE;
 
     /* Typography */
     --font-primary: 'Space Grotesk', system-ui, sans-serif;
@@ -38,14 +45,22 @@
 }
 
 [data-theme='dark'] {
-    --color-bg: #050505;
-    --color-surface: #111111;
-    --color-text-primary: #FFFFFF;
-    --color-text-secondary: #888888;
-    --color-accent: #7568ff;
-    --color-accent-light: #1a1730;
-    --color-border: #222222;
-    --color-surface-alt: #12111f;
+    /* Backgrounds */
+    --bg-primary: #050505;
+    --bg-secondary: #111111;
+    --bg-tertiary: #12111f;
+
+    /* Text (4 different colors) */
+    --text-primary: #FFFFFF;
+    --text-secondary: #A0A0B0;
+    --text-tertiary: #707080;
+    --text-quaternary: #404050;
+    --text-inverse: #0F0F0F;
+
+    /* Accents & Borders */
+    --accent-primary: #7568ff;
+    --accent-secondary: #1a1730;
+    --border-primary: #222222;
 }
 
 /* =========================================================================
@@ -81,8 +96,8 @@ html {
 }
 
 body {
-    background-color: var(--color-bg);
-    color: var(--color-text-primary);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     font-family: var(--font-primary);
     font-size: var(--text-step-0);
     line-height: 1.6;
@@ -115,21 +130,21 @@ h3 {
 p {
     font-family: var(--font-secondary);
     line-height: 1.7;
-    color: var(--color-text-secondary);
+    color: var(--text-secondary);
 }
 
 a {
-    color: var(--color-text-primary);
+    color: var(--text-primary);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 a:hover {
-    color: var(--color-accent);
+    color: var(--accent-primary);
 }
 
 :focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--accent-primary);
     outline-offset: 4px;
 }
 
@@ -156,7 +171,7 @@ img {
     display: inline-block;
     padding: 0 12px;
     border-radius: 99px;
-    color: var(--color-bg);
+    color: var(--bg-primary);
     font-weight: 700;
     line-height: 1.2;
 }
@@ -171,7 +186,7 @@ img {
 
 .text-highlight-yellow {
     background-color: #ffb800;
-    color: #111;
+    color: var(--text-primary);
 }
 
 .mx-auto {
@@ -184,11 +199,11 @@ img {
 }
 
 .text-white {
-    color: #fff !important;
+    color: var(--text-inverse) !important;
 }
 
 .text-gray-400 {
-    color: #a0a0b0 !important;
+    color: var(--text-tertiary) !important;
 }
 
 .flex-center {
@@ -211,13 +226,13 @@ img {
 
 /* Dark Section Util */
 .dark-section {
-    background-color: #0d0d12;
-    color: #fff;
+    background-color: var(--text-primary);
+    color: var(--text-inverse);
 }
 
 .dark-section .section-label,
 .dark-section .section-desc {
-    color: #a0a0b0;
+    color: var(--text-tertiary);
 }
 
 /* =========================================================================
@@ -245,7 +260,7 @@ img {
 }
 
 .text-accent {
-    color: var(--color-accent);
+    color: var(--accent-primary);
 }
 
 /* ─── Scroll-reveal animation ─── */
@@ -281,7 +296,7 @@ img {
 .section-label {
     font-size: var(--text-step-0);
     font-weight: 500;
-    color: var(--color-text-secondary);
+    color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.06em;
 }
@@ -297,13 +312,13 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--color-text-primary);
-    color: var(--color-bg);
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
     padding: var(--space-3) var(--space-6);
     font-family: var(--font-primary);
     font-size: var(--text-step-0);
     font-weight: 600;
-    border: 1px solid var(--color-text-primary);
+    border: 1px solid var(--text-primary);
     border-radius: var(--radius-none);
     cursor: pointer;
     text-transform: uppercase;
@@ -316,47 +331,47 @@ img {
 
 .brutalist-button:hover {
     transform: translate(-4px, -4px);
-    box-shadow: 4px 4px 0px var(--color-accent);
-    background-color: var(--color-surface);
-    color: var(--color-text-primary);
+    box-shadow: 4px 4px 0px var(--accent-primary);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
 }
 
 .brutalist-button--accent {
-    background-color: var(--color-accent);
-    color: #fff;
-    border-color: var(--color-accent);
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+    border-color: var(--accent-primary);
 }
 
 .brutalist-button--accent:hover {
-    background-color: var(--color-text-primary);
-    color: var(--color-bg);
-    border-color: var(--color-text-primary);
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    border-color: var(--text-primary);
 }
 
 .brutalist-button--dark {
-    background-color: var(--color-text-primary);
-    color: var(--color-bg);
-    border-color: var(--color-text-primary);
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    border-color: var(--text-primary);
 }
 
 .brutalist-button--dark:hover {
-    background-color: var(--color-accent);
-    color: #fff;
-    border-color: var(--color-accent);
-    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+    border-color: var(--accent-primary);
+    box-shadow: 4px 4px 0px var(--text-primary);
 }
 
 .brutalist-button--white {
-    background-color: #ffffff;
-    color: #0d0d12;
-    border-color: #ffffff;
+    background-color: var(--text-inverse);
+    color: var(--text-primary);
+    border-color: var(--text-inverse);
 }
 
 .brutalist-button--white:hover {
-    background-color: #0d0d12;
-    color: #fff;
-    border-color: #0d0d12;
-    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+    background-color: var(--text-primary);
+    color: var(--text-inverse);
+    border-color: var(--text-primary);
+    box-shadow: 4px 4px 0px var(--accent-primary);
 }
 
 /* =========================================================================
@@ -364,14 +379,14 @@ img {
    ========================================================================= */
 
 .global-header {
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--border-primary);
     padding: var(--space-3) 0;
     position: sticky;
     top: 0;
-    background-color: var(--color-bg);
+    background-color: var(--bg-primary);
     z-index: 100;
     backdrop-filter: blur(16px);
-    background-color: color-mix(in srgb, var(--color-bg) 85%, transparent);
+    background-color: color-mix(in srgb, var(--bg-primary) 85%, transparent);
     transition: all 0.3s ease;
 }
 
@@ -420,7 +435,7 @@ img {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--color-accent);
+    background-color: var(--accent-primary);
     transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -440,9 +455,9 @@ img {
     .header-inner {
         max-width: 768px;
         margin: 0 auto;
-        border: 1px solid var(--color-border);
+        border: 1px solid var(--border-primary);
         border-radius: 9999px;
-        background-color: var(--color-bg);
+        background-color: var(--bg-primary);
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
         display: grid;
         grid-template-columns: 1fr auto 1fr;
@@ -461,7 +476,7 @@ img {
     .primary-nav a {
         font-size: 1.1rem;
         font-weight: 600;
-        color: var(--color-text-primary);
+        color: var(--text-primary);
         text-transform: none;
         letter-spacing: normal;
     }
@@ -477,8 +492,8 @@ img {
     justify-content: space-between;
     width: 64px;
     height: 32px;
-    background-color: var(--color-surface-alt);
-    border: 1px solid var(--color-border);
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
     border-radius: 99px;
     padding: 0 4px;
     cursor: pointer;
@@ -489,7 +504,7 @@ img {
 }
 
 .theme-switch:hover {
-    border-color: var(--color-accent);
+    border-color: var(--accent-primary);
 }
 
 .theme-switch::before {
@@ -499,7 +514,7 @@ img {
     left: 3px;
     width: 24px;
     height: 24px;
-    background-color: var(--color-text-primary);
+    background-color: var(--text-primary);
     border-radius: 50%;
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 0;
@@ -521,19 +536,19 @@ img {
 }
 
 .theme-switch .sun-icon {
-    color: var(--color-bg);
+    color: var(--bg-primary);
 }
 
 .theme-switch .moon-icon {
-    color: var(--color-text-secondary);
+    color: var(--text-secondary);
 }
 
 [data-theme='dark'] .theme-switch .sun-icon {
-    color: var(--color-text-secondary);
+    color: var(--text-secondary);
 }
 
 [data-theme='dark'] .theme-switch .moon-icon {
-    color: var(--color-bg);
+    color: var(--bg-primary);
 }
 
 /* =========================================================================
@@ -544,7 +559,7 @@ img {
     overflow: hidden;
     position: relative;
     z-index: 1;
-    background-color: var(--color-surface);
+    background-color: var(--bg-secondary);
     height: 80vh;
     display: flex;
     align-items: center;
@@ -597,8 +612,8 @@ img {
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    background-color: var(--color-accent-light);
-    color: var(--color-accent);
+    background-color: var(--accent-secondary);
+    color: var(--accent-primary);
     padding: var(--space-1) var(--space-3);
     border-radius: 99px;
     font-size: 0.85rem;
@@ -646,7 +661,7 @@ img {
 }
 
 .text-link:hover {
-    border-bottom-color: var(--color-accent);
+    border-bottom-color: var(--accent-primary);
 }
 
 .hero-tags {
@@ -658,20 +673,20 @@ img {
 
 .hero-tag {
     display: inline-block;
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
     padding: var(--space-1) var(--space-3);
     border-radius: 99px;
     font-size: 0.8rem;
     font-weight: 500;
-    color: var(--color-text-secondary);
+    color: var(--text-secondary);
     transition: border-color 0.2s, color 0.2s, transform 0.2s;
     cursor: default;
 }
 
 .hero-tag:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
     transform: translateY(-2px);
 }
 
@@ -699,12 +714,12 @@ img {
     justify-content: center;
     width: 52px;
     height: 52px;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
     border-radius: var(--radius-lg);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
     font-size: 1.5rem;
-    color: var(--color-accent);
+    color: var(--accent-primary);
     animation: floatBounce 3s ease-in-out infinite;
 }
 
@@ -744,7 +759,7 @@ img {
 
 .marquee-strip {
     overflow: hidden;
-    background-color: var(--color-text-primary);
+    background-color: var(--text-primary);
     padding: var(--space-3) 0;
 }
 
@@ -759,7 +774,7 @@ img {
 .marquee-item {
     font-size: var(--text-step-0);
     font-weight: 600;
-    color: var(--color-bg);
+    color: var(--bg-primary);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     flex-shrink: 0;
@@ -781,21 +796,21 @@ img {
    ========================================================================= */
 
 .bento-footer {
-    --color-bg: #050505;
-    --color-surface: #111111;
-    --color-text-primary: #FFFFFF;
-    --color-text-secondary: #888888;
-    --color-accent: #7568ff;
-    --color-accent-light: #1a1730;
-    --color-border: #222222;
-    --color-surface-alt: #12111f;
-    background-color: var(--color-bg);
-    color: var(--color-text-primary);
+    --bg-primary: #050505;
+    --bg-secondary: #111111;
+    --text-primary: #FFFFFF;
+    --text-secondary: #888888;
+    --accent-primary: #7568ff;
+    --accent-secondary: #1a1730;
+    --border-primary: #222222;
+    --bg-tertiary: #12111f;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
 }
 
 .bento-footer-inner {
-    background-color: var(--color-bg);
-    border-top: 1px solid var(--color-border);
+    background-color: var(--bg-primary);
+    border-top: 1px solid var(--border-primary);
     padding: var(--space-6);
     position: relative;
     display: grid;
@@ -828,7 +843,7 @@ img {
     gap: var(--space-8);
     justify-content: space-between;
     align-items: flex-start;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--border-primary);
     padding-bottom: var(--space-8);
 }
 
@@ -858,8 +873,8 @@ img {
     justify-content: center;
     width: 56px;
     height: 56px;
-    background-color: var(--color-accent);
-    color: #fff;
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
     border-radius: var(--radius-md);
     font-size: 32px;
 }
@@ -868,12 +883,12 @@ img {
     font-size: var(--text-step-2);
     font-weight: 700;
     letter-spacing: -0.03em;
-    color: var(--color-text-primary);
+    color: var(--text-primary);
     margin: 0;
 }
 
 .bento-brand p {
-    color: var(--color-text-secondary);
+    color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.6;
 }
@@ -887,7 +902,7 @@ img {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: var(--space-4);
-    color: var(--color-text-primary);
+    color: var(--text-primary);
 }
 
 .bento-newsletter-form {
@@ -901,20 +916,20 @@ img {
 @media (min-width: 480px) {
     .bento-newsletter-form {
         flex-direction: row;
-        background-color: var(--color-bg);
+        background-color: var(--bg-primary);
         padding: 6px;
         border-radius: 99px;
-        border: 1px solid var(--color-border);
+        border: 1px solid var(--border-primary);
     }
 }
 
 .bento-newsletter-form input {
     flex-grow: 1;
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
     border-radius: 99px;
     padding: var(--space-3) var(--space-4);
-    color: var(--color-text-primary);
+    color: var(--text-primary);
     font-family: var(--font-secondary);
     font-size: 0.95rem;
     outline: none;
@@ -931,7 +946,7 @@ img {
 }
 
 .bento-newsletter-form input::placeholder {
-    color: var(--color-text-secondary);
+    color: var(--text-secondary);
 }
 
 .bento-newsletter-form .brutalist-button {
@@ -943,8 +958,8 @@ img {
 .bento-newsletter-form .brutalist-button:hover {
     transform: none;
     box-shadow: none;
-    background-color: var(--color-text-primary);
-    color: var(--color-bg);
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
 }
 
 .bento-footer-links {
@@ -972,18 +987,18 @@ img {
 .bento-link-col h4 {
     font-size: 1.1rem;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--text-primary);
     margin-bottom: var(--space-2);
 }
 
 .bento-link-col a {
-    color: var(--color-text-secondary);
+    color: var(--text-secondary);
     font-size: 0.95rem;
     transition: color 0.2s ease;
 }
 
 .bento-link-col a:hover {
-    color: var(--color-text-primary);
+    color: var(--text-primary);
 }
 
 .bento-social-col {
@@ -1002,18 +1017,18 @@ img {
     justify-content: center;
     width: 44px;
     height: 44px;
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
     border-radius: 50%;
-    color: var(--color-text-primary);
+    color: var(--text-primary);
     font-size: 20px;
     transition: background-color 0.2s ease, transform 0.2s, border-color 0.2s;
 }
 
 .bento-social-icons a:hover {
-    background-color: var(--color-accent);
-    color: #fff;
-    border-color: var(--color-accent);
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
+    border-color: var(--accent-primary);
     transform: translateY(-2px);
 }
 
@@ -1022,12 +1037,12 @@ img {
     bottom: 0;
     left: 50%;
     transform: translate(-50%, 50%);
-    background-color: var(--color-accent);
-    border: 1px solid var(--color-border);
+    background-color: var(--accent-primary);
+    border: 1px solid var(--border-primary);
     padding: var(--space-2) var(--space-4);
     border-radius: 99px;
     font-size: 0.75rem;
-    color: #ffffff;
+    color: var(--text-inverse);
     white-space: nowrap;
     z-index: 10;
 }
@@ -1072,7 +1087,7 @@ img {
     font-size: 0.85rem;
     font-weight: 600;
     margin-bottom: var(--space-3);
-    color: var(--color-text-primary);
+    color: var(--text-primary);
 }
 
 .tech-stack-icons {
@@ -1087,8 +1102,8 @@ img {
     justify-content: center;
     width: 4rem;
     height: 4rem;
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
     border-radius: var(--radius-md);
     font-size: 1.25rem;
     padding: var(--space-2);
@@ -1113,7 +1128,7 @@ img {
 }
 
 .service-item:hover {
-    background-color: var(--color-surface);
+    background-color: var(--bg-secondary);
 }
 
 .service-icon {
@@ -1122,9 +1137,9 @@ img {
     justify-content: center;
     width: 3rem;
     height: 3rem;
-    background-color: var(--color-surface);
+    background-color: var(--bg-secondary);
     border-radius: 50%;
-    color: var(--color-text-primary);
+    color: var(--text-primary);
     font-size: 1.5rem;
 }
 
@@ -1137,7 +1152,7 @@ img {
    18. Pricing Section
    ========================================================================= */
 .pricing-section-wrapper {
-    background-color: var(--color-surface);
+    background-color: var(--bg-secondary);
 }
 
 .pricing-header {
@@ -1158,7 +1173,7 @@ img {
 }
 
 .text-primary {
-    color: var(--color-text-primary) !important;
+    color: var(--text-primary) !important;
 }
 
 .pricing-features {
@@ -1199,15 +1214,15 @@ img {
     flex-direction: column;
     gap: var(--space-2);
     padding: var(--space-2);
-    background-color: var(--color-bg);
+    background-color: var(--bg-primary);
     border-radius: var(--radius-xl);
 }
 
 .pricing-card-subscription {
     display: grid;
     grid-template-columns: 1fr;
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
     border-radius: var(--radius-xl);
     overflow: hidden;
     position: relative;
@@ -1232,8 +1247,8 @@ img {
 }
 
 .subscription-visual {
-    background-color: #0d0e15;
-    color: #fff;
+    background-color: var(--text-primary);
+    color: var(--text-inverse);
     padding: var(--space-8);
     display: flex;
     flex-direction: column;
@@ -1263,8 +1278,8 @@ img {
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    background-color: #ffffff;
-    color: #0d0e15;
+    background-color: var(--text-inverse);
+    color: var(--text-primary);
     padding: var(--space-2) var(--space-4);
     border-radius: 99px;
     font-weight: 700;
@@ -1282,7 +1297,7 @@ img {
 }
 
 .visual-desc {
-    color: #a0a0b0;
+    color: var(--text-tertiary);
     font-size: 0.85rem;
     margin-top: auto;
 }
@@ -1319,14 +1334,14 @@ img {
 
 .period {
     font-weight: 600;
-    color: var(--color-text-secondary);
+    color: var(--text-secondary);
     padding-bottom: 6px;
 }
 
 .pricing-divider {
     border: 0;
     height: 1px;
-    background-color: var(--color-border);
+    background-color: var(--border-primary);
     margin: 0 0 var(--space-6) 0;
 }
 
@@ -1353,7 +1368,7 @@ img {
 }
 
 .pricing-checklist li svg {
-    color: var(--color-text-primary);
+    color: var(--text-primary);
     font-size: 1.5rem;
 }
 
@@ -1366,13 +1381,13 @@ img {
 
 .payment-note {
     font-size: 0.85rem;
-    color: var(--color-text-secondary);
+    color: var(--text-secondary);
     font-weight: 500;
 }
 
 .pricing-card-single {
-    background-color: var(--color-accent);
-    color: #fff;
+    background-color: var(--accent-primary);
+    color: var(--text-inverse);
     border-radius: var(--radius-xl);
     padding: var(--space-6) var(--space-8);
     display: flex;
@@ -1413,7 +1428,7 @@ img {
 }
 
 .pricing-checklist--light li svg {
-    color: #fff;
+    color: var(--text-inverse);
 }
 
 .pricing-checklist--light {
@@ -1446,8 +1461,8 @@ img {
 }
 
 .testimonial-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
     border-radius: var(--radius-lg);
     padding: var(--space-6);
     display: flex;
@@ -1459,13 +1474,13 @@ img {
     line-height: 1;
     font-family: serif;
     font-weight: 900;
-    color: var(--color-text-secondary);
+    color: var(--text-secondary);
     margin-bottom: var(--space-2);
 }
 
 .testimonial-text {
     font-size: 1rem;
-    color: var(--color-text-primary);
+    color: var(--text-primary);
     font-weight: 500;
     margin-bottom: var(--space-6);
     flex-grow: 1;
@@ -1497,14 +1512,14 @@ img {
 
 .author-handle {
     font-size: 0.8rem;
-    color: var(--color-text-secondary);
+    color: var(--text-secondary);
 }
 
 /* =========================================================================
    20. FAQ Section
    ========================================================================= */
 .faq-section-wrapper {
-    background-color: var(--color-surface);
+    background-color: var(--bg-secondary);
 }
 
 .faq-grid {
@@ -1528,11 +1543,11 @@ img {
 .faq-accordion {
     display: flex;
     flex-direction: column;
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid var(--border-primary);
 }
 
 .faq-item {
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--border-primary);
     padding: var(--space-4) 0;
     cursor: pointer;
 }
@@ -1545,7 +1560,7 @@ img {
 
 .q-icon {
     font-weight: 700;
-    color: var(--color-text-secondary);
+    color: var(--text-secondary);
 }
 
 .faq-question h4 {
@@ -1556,7 +1571,7 @@ img {
 
 .faq-toggle-icon {
     font-size: 1.5rem;
-    color: var(--color-text-primary);
+    color: var(--text-primary);
     transition: transform 0.3s ease;
 }
 
@@ -1570,8 +1585,8 @@ img {
 }
 
 .cta-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
     border-radius: var(--radius-xl);
     padding: var(--space-8);
     display: flex;
@@ -1589,7 +1604,7 @@ img {
 }
 
 .cta-title {
-    color: var(--color-text-secondary);
+    color: var(--text-secondary);
     font-weight: 500;
     font-size: 1.1rem;
     margin-bottom: var(--space-1);
@@ -1619,19 +1634,21 @@ img {
    21. Logo Cloud
    ========================================================================= */
 .logo-cloud-section {
-    background-color: var(--color-text-primary);
+    background-color: var(--text-primary);
     text-align: center;
     padding-top: var(--space-3);
     padding-bottom: var(--space-3);
+    display: grid;
+    gap: var(--space-3);
 }
 
 .border-y {
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
+    border-top: 1px solid var(--border-primary);
+    border-bottom: 1px solid var(--border-primary);
 }
 
 .border-border {
-    border-color: var(--color-border);
+    border-color: var(--border-primary);
 }
 
 .flex {
@@ -1668,11 +1685,11 @@ img {
 }
 
 .text-gray-500 {
-    color: #6b7280;
+    color: var(--text-quaternary);
 }
 
 .text-gray-400 {
-    color: #9ca3af;
+    color: var(--text-tertiary);
 }
 
 .min-w-max {
