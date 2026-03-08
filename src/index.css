@@ -817,8 +817,8 @@ img {
     border-top: 1px solid var(--border-primary);
     padding: var(--space-6);
     position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: var(--space-8);
     overflow: hidden;
     z-index: 1;
@@ -833,6 +833,8 @@ img {
 @media (min-width: 768px) {
     .bento-footer-inner {
         padding: var(--space-12);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: var(--space-12);
     }
 }
@@ -1037,10 +1039,8 @@ img {
 }
 
 .bento-copyright-pill {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 50%);
+    position: relative;
+    margin-top: var(--space-8);
     background-color: var(--accent-primary);
     border: 1px solid var(--border-primary);
     padding: var(--space-2) var(--space-4);
@@ -1049,6 +1049,8 @@ img {
     color: var(--text-inverse);
     white-space: nowrap;
     z-index: 10;
+    align-self: center;
+    text-align: center;
 }
 
 @media (min-width: 480px) {
