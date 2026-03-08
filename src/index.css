@@ -1095,17 +1095,16 @@ img {
 }
 
 .tech-stack-icons {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(4rem, 1fr));
     gap: var(--space-2);
-    flex-wrap: wrap;
 }
 
 .tech-stack-icon-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 4rem;
-    height: 4rem;
+    aspect-ratio: 1/1;
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-primary);
     border-radius: var(--radius-md);
@@ -1253,7 +1252,7 @@ img {
 .subscription-visual {
     background-color: var(--text-primary);
     color: var(--text-inverse);
-    padding: var(--space-8);
+    padding: var(--space-6);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1307,9 +1306,18 @@ img {
 }
 
 .subscription-details {
-    padding: var(--space-8);
+    padding: var(--space-6);
     display: flex;
     flex-direction: column;
+}
+
+@media (min-width: 768px) {
+
+    .subscription-visual,
+    .subscription-details,
+    .pricing-card-single {
+        padding: var(--space-8);
+    }
 }
 
 .details-header h4 {
@@ -1393,7 +1401,7 @@ img {
     background-color: var(--accent-primary);
     color: var(--text-inverse);
     border-radius: var(--radius-xl);
-    padding: var(--space-6) var(--space-8);
+    padding: var(--space-6);
     display: flex;
     flex-direction: column;
     gap: var(--space-6);
