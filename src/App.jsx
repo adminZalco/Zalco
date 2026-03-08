@@ -105,7 +105,7 @@ function App() {
                         <a href="#about">About</a>
                     </nav>
                     <div className="header-actions">
-                        <button className="brutalist-button brutalist-button--dark header-contact-btn" onClick={() => window.open('https://cal.com/zalco/30min', '_blank')}>Contact</button>
+                        <button className="brutalist-button brutalist-button--dark header-contact-btn" onClick={() => window.open('https://cal.com/zalco/15min', '_blank')}>Contact</button>
                     </div>
                 </div>
             </header>
@@ -128,7 +128,7 @@ function App() {
                             </FadeSection>
                             <FadeSection delay={300}>
                                 <div className="hero-actions">
-                                    <button className="brutalist-button brutalist-button--dark" onClick={() => window.open('https://cal.com/zalco/30min', '_blank')}>Start a Project</button>
+                                    <button className="brutalist-button brutalist-button--dark" onClick={() => window.open('https://cal.com/zalco/15min', '_blank')}>Start a Project</button>
                                     <a href="#services" className="text-link">
                                         Explore Capabilities <Icon icon="solar:arrow-right-up-linear" />
                                     </a>
