@@ -6,6 +6,7 @@ import PricingSection from './components/PricingSection';
 import LogoCloud from './components/LogoCloud';
 import TestimonialsSection from './components/TestimonialsSection';
 import FAQSection from './components/FAQSection';
+import ProcessSection from './components/ProcessSection';
 import './index.css';
 
 import ZalcoLogo from './assets/logos/ZalcoLogo.svg';
@@ -130,7 +131,7 @@ function App() {
                                 <div className="hero-actions">
                                     <button className="brutalist-button brutalist-button--dark" onClick={() => window.open('https://cal.com/zalco/15min', '_blank')}>Start a Project</button>
                                     <a href="#services" className="text-link">
-                                        Explore Capabilities <Icon icon="solar:arrow-right-up-linear" />
+                                        Explore Capabilities <Icon icon="solar:arrow-right-up-bold-duotone" />
                                     </a>
                                 </div>
                             </FadeSection>
@@ -148,6 +149,7 @@ function App() {
                 </div>
 
                 <ServicesSection />
+                <ProcessSection />
                 <PricingSection />
                 <TestimonialsSection />
                 <LogoCloud />

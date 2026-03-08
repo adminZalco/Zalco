@@ -11,16 +11,16 @@
     --bg-tertiary: #F3F2FF;
 
     /* Text (4 different colors) */
-    --text-primary: #0F0F0F;
-    --text-secondary: #5A5A6E;
-    --text-tertiary: #8A8A9E;
-    --text-quaternary: #C0C0D0;
+    --text-primary: hsl(0, 0%, 6%);
+    --text-secondary: hsl(240, 6%, 18%);
+    --text-tertiary: hsl(240, 6%, 36%);
+    --text-quaternary: hsl(240, 6%, 48%);
     --text-inverse: #FFFFFF;
 
     /* Accents & Borders */
     --accent-primary: #7568ff;
     --accent-secondary: #ebe9ff;
-    --border-primary: #E8E8EE;
+    --border-primary: hsl(240, 15%, 90%);
 
     /* Typography */
     --font-primary: 'Space Grotesk', system-ui, sans-serif;
@@ -51,10 +51,10 @@
     --bg-tertiary: #12111f;
 
     /* Text (4 different colors) */
-    --text-primary: #FFFFFF;
-    --text-secondary: #A0A0B0;
-    --text-tertiary: #707080;
-    --text-quaternary: #404050;
+    --text-primary: hsl(0, 0%, 100%);
+    --text-secondary: hsl(240, 6%, 72%);
+    --text-tertiary: hsl(240, 6%, 42%);
+    --text-quaternary: hsl(240, 6%, 48%);
     --text-inverse: #0F0F0F;
 
     /* Accents & Borders */
@@ -778,7 +778,7 @@ img {
 .marquee-item {
     font-size: var(--text-step-0);
     font-weight: 600;
-    color: var(--bg-primary);
+    color: var(--text-inverse);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     flex-shrink: 0;
@@ -1061,6 +1061,10 @@ img {
 /* =========================================================================
    17. Services Section
    ========================================================================= */
+.services-section {
+    background-color: var(--bg-secondary);
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -1648,7 +1652,7 @@ img {
 .logo-cloud-section {
     background-color: var(--text-primary);
     text-align: center;
-    padding-top: var(--space-3);
+    padding-top: var(--space-1);
     padding-bottom: var(--space-3);
     display: grid;
     gap: var(--space-3);
@@ -1743,6 +1747,7 @@ img {
     width: max-content;
     animation: logoMarqueeScroll 20s linear infinite;
     white-space: nowrap;
+    color: var(--text-inverse);
 }
 
 .logo-marquee-track .logo-item {
@@ -1757,4 +1762,218 @@ img {
     100% {
         transform: translateX(-50%);
     }
+}
+
+/* =========================================================================
+   18. Process Section
+   ========================================================================= */
+.process-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.process-timeline {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    position: relative;
+}
+
+.process-split-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    margin-top: var(--space-12);
+}
+
+@media (min-width: 1024px) {
+    .process-split-layout {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-12);
+        align-items: start;
+    }
+}
+
+.process-step-wrapper {
+    position: relative;
+}
+
+.process-step {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.process-step--flex {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-6);
+}
+
+.process-step-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 100%;
+}
+
+.process-step-number {
+    font-family: var(--font-primary);
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--text-tertiary);
+    opacity: 0.15;
+    line-height: 1;
+    margin-bottom: var(--space-2);
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.process-step-wrapper:hover .process-step-number {
+    color: var(--accent-primary);
+    opacity: 1;
+}
+
+.process-step-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--accent-primary);
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease;
+}
+
+.process-step-wrapper:hover .process-step-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: var(--accent-secondary);
+    border-color: var(--accent-primary);
+}
+
+.process-step-line {
+    position: absolute;
+    top: 50%;
+    left: 64px;
+    right: -2rem;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-primary) 0%, transparent 100%);
+    transform: translateY(-50%);
+    z-index: 1;
+    opacity: 0.5;
+    box-shadow: 0 0 8px 1px var(--accent-primary);
+    animation: pulseLine 2.5s ease-in-out infinite;
+}
+
+.process-step-line--vertical {
+    top: 3rem;
+    /* Offset past the 48px icon and its border */
+    left: 50%;
+    right: auto;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--accent-primary) 0%, transparent 100%);
+    transform: translateX(-50%);
+}
+
+@keyframes pulseLine {
+    0% {
+        opacity: 0.3;
+        box-shadow: 0 0 4px 0px var(--accent-primary);
+    }
+
+    50% {
+        opacity: 0.8;
+        box-shadow: 0 0 12px 2px var(--accent-primary);
+    }
+
+    100% {
+        opacity: 0.3;
+        box-shadow: 0 0 4px 0px var(--accent-primary);
+    }
+}
+
+@media (max-width: 1023px) {
+    .process-step-line {
+        display: none;
+        /* Hide connecting lines on smaller stacked grids */
+    }
+
+    .process-step-line--vertical {
+        display: block;
+        /* Show vertical lines on mobile stack */
+    }
+}
+
+.process-step-content {
+    flex-grow: 1;
+    backdrop-filter: blur(12px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+    padding: var(--space-6);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    background-color: var(--bg-secondary);
+}
+
+.process-step-wrapper:hover .process-step-content {
+    transform: translateY(-8px);
+    border-color: var(--accent-primary) !important;
+}
+
+.process-step-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: var(--space-3);
+    color: var(--text-primary);
+}
+
+.process-step-desc {
+    color: var(--text-tertiary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* ─── Animation Side Container ─── */
+.process-animation-wrapper {
+    position: relative;
+    height: 100%;
+}
+
+.process-animation-container {
+    position: sticky;
+    top: 140px;
+    /* Stay below the navbar */
+    height: 60vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: var(--space-8);
+    /* Disable the hover lift to preserve sticky position fluidness */
+    transition: background 0.4s ease, border-color 0.4s ease;
+    padding: var(--space-8);
+    border-radius: var(--radius-xl);
+}
+
+.process-animation-container:hover {
+    transform: none !important;
+}
+
+@media (min-width: 1024px) {
+    .process-animation-container {
+        margin-top: 0;
+    }
+}
+
+.process-placeholder-icon {
+    font-size: 4rem;
+    color: var(--accent-primary);
+    margin-bottom: var(--space-2);
+    opacity: 0.8;
 }

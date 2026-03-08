@@ -51,7 +51,7 @@ export default function FAQSection() {
                                             <span className="q-icon">Q.</span>
                                             <h4>{faq.q}</h4>
                                             <Icon
-                                                icon={isOpen ? "solar:minus-circle-linear" : "solar:add-circle-linear"}
+                                                icon={isOpen ? "solar:minus-circle-bold-duotone" : "solar:add-circle-bold-duotone"}
                                                 className="faq-toggle-icon"
                                             />
                                         </div>

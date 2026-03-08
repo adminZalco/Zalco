@@ -20,7 +20,7 @@ export default function LogoCloud() {
             </span>
 
             <div className="logo-marquee-container w-full overflow-hidden">
-                <div className="logo-marquee-track flex gap-12 items-center text-gray-500">
+                <div className="logo-marquee-track flex gap-12 items-center">
                     {marqueeItems.map((logo, idx) => (
                         <div key={idx} className="logo-item flex items-center gap-2 font-semibold">
                             {logo.icon && <Icon icon={logo.icon} className="text-xl" />}

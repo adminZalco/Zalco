@@ -18,40 +18,42 @@ export default function ServicesSection() {
     ];
 
     return (
-        <section id="services" className="section-padding container">
-            <div className="services-grid">
-                {/* Left Column: Heading & Tech Stack */}
-                <div className="services-left">
-                    <h2 className="services-heading">
-                        <span className="text-gray-400 font-normal">Services that</span><br />
-                        supercharge your<br />
-                        business.
-                    </h2>
+        <section id="services" className="services-section">
+            <div className="section-padding container">
+                <div className="services-grid">
+                    {/* Left Column: Heading & Tech Stack */}
+                    <div className="services-left">
+                        <h2 className="services-heading">
+                            <span className="text-gray-400 font-normal">Services that</span><br />
+                            supercharge your<br />
+                            business.
+                        </h2>
 
-                    <div className="tech-stack-container">
-                        <p className="tech-stack-label">Our tech stack</p>
-                        <div className="tech-stack-icons">
-                            {techStack.map((icon, index) => (
-                                <div key={index} className="tech-stack-icon-wrapper">
-                                    <Icon icon={icon} />
-                                </div>
-                            ))}
+                        <div className="tech-stack-container">
+                            <p className="tech-stack-label">Our tech stack</p>
+                            <div className="tech-stack-icons">
+                                {techStack.map((icon, index) => (
+                                    <div key={index} className="tech-stack-icon-wrapper">
+                                        <Icon icon={icon} />
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                {/* Right Column: Services List */}
-                <div className="services-right">
-                    <ul className="services-list">
-                        {services.map((service, index) => (
-                            <li key={index} className="service-item">
-                                <span className="service-icon">
-                                    <Icon icon={service.icon} />
-                                </span>
-                                <span className="service-name">{service.name}</span>
-                            </li>
-                        ))}
-                    </ul>
+                    {/* Right Column: Services List */}
+                    <div className="services-right">
+                        <ul className="services-list">
+                            {services.map((service, index) => (
+                                <li key={index} className="service-item">
+                                    <span className="service-icon">
+                                        <Icon icon={service.icon} />
+                                    </span>
+                                    <span className="service-name">{service.name}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
