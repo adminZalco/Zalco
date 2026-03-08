@@ -104,7 +104,7 @@ function App() {
                         <a href="#pricing">Pricing</a>
                     </nav>
                     <div className="header-actions">
-                        <button className="brutalist-button brutalist-button--dark header-contact-btn">Contact</button>
+                        <button className="brutalist-button brutalist-button--dark header-contact-btn" onClick={() => window.open('https://cal.com/zalco/30min', '_blank')}>Contact</button>
                     </div>
                 </div>
             </header>

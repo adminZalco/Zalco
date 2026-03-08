@@ -78,7 +78,7 @@ export default function FAQSection() {
                             <p className="cta-desc">
                                 Give me a shout if you need specific advice or have more questions.
                             </p>
-                            <button className="brutalist-button brutalist-button--dark w-full cta-button">
+                            <button className="brutalist-button brutalist-button--dark w-full cta-button" onClick={() => window.open('https://cal.com/zalco/30min', '_blank')}>
                                 <Icon icon="solar:calendar-bold-duotone" /> Schedule Call
                             </button>
                         </div>

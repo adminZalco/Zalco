@@ -68,7 +68,7 @@ export default function PricingSection() {
                                 <li><Icon icon="solar:check-circle-bold-duotone" /> Direct slack channel</li>
                             </ul>
                             <div className="pricing-actions">
-                                <button className="brutalist-button brutalist-button--dark">Get started</button>
+                                <button className="brutalist-button brutalist-button--dark" onClick={() => window.open('https://cal.com/zalco/30min', '_blank')}>Get started</button>
                                 <span className="payment-note">Powered by Paypal</span>
                             </div>
                         </div>
@@ -86,7 +86,7 @@ export default function PricingSection() {
                             <li><Icon icon="solar:check-circle-bold-duotone" /> Flexible iteration</li>
                             <li><Icon icon="solar:check-circle-bold-duotone" /> Milestone payments</li>
                         </ul>
-                        <button className="brutalist-button brutalist-button--white">Get quote</button>
+                        <button className="brutalist-button brutalist-button--white" onClick={() => window.open('https://cal.com/zalco/30min', '_blank')}>Get quote</button>
                     </div>
                 </div>
             </div>
