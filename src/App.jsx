@@ -94,14 +94,15 @@ function App() {
             {/* ─── Header ─── */}
             <header role="banner" className="global-header">
                 <div className="container header-inner">
-                    <a href="#" className="header-logo">
+                    <a href="/" className="header-logo">
                         <img src={ZalcoLogo} alt="Zalco" style={{ height: '3rem', width: 'auto' }} />
                         <h1 className="logo-text">Zalco</h1>
                     </a>
                     <nav aria-label="Primary Navigation" className="primary-nav">
                         <a href="#services">Services</a>
-                        <a href="#work">Work</a>
+                        {/* <a href="#work">Work</a> */}
                         <a href="#pricing">Pricing</a>
+                        <a href="#about">About</a>
                     </nav>
                     <div className="header-actions">
                         <button className="brutalist-button brutalist-button--dark header-contact-btn" onClick={() => window.open('https://cal.com/zalco/30min', '_blank')}>Contact</button>
@@ -127,7 +128,7 @@ function App() {
                             </FadeSection>
                             <FadeSection delay={300}>
                                 <div className="hero-actions">
-                                    <button className="brutalist-button brutalist-button--dark">View Portfolio</button>
+                                    <button className="brutalist-button brutalist-button--dark" onClick={() => window.open('https://cal.com/zalco/30min', '_blank')}>Start a Project</button>
                                     <a href="#services" className="text-link">
                                         Explore Capabilities <Icon icon="solar:arrow-right-up-linear" />
                                     </a>

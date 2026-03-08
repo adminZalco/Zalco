@@ -42,7 +42,7 @@ const testimonials = [
 
 export default function TestimonialsSection() {
     return (
-        <section id="work" className="section-padding container">
+        <section id="about" className="section-padding container">
             <h2 className="testimonials-heading mb-12">
                 <span className="text-gray-400 font-normal">Hear from what my</span><br />
                 clients have to say.
