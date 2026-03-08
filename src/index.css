@@ -381,8 +381,10 @@ img {
 .global-header {
     border-bottom: 1px solid var(--border-primary);
     padding: var(--space-3) 0;
-    position: sticky;
+    position: absolute;
     top: 0;
+    left: 0;
+    width: 100%;
     background-color: var(--bg-primary);
     z-index: 100;
     backdrop-filter: blur(16px);
@@ -560,10 +562,12 @@ img {
     position: relative;
     z-index: 1;
     background-color: var(--bg-secondary);
-    height: 80vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 5rem;
+    /* Space for the header */
 }
 
 .hero-inner {
