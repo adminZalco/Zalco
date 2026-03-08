@@ -247,7 +247,17 @@ img {
     padding-right: var(--space-4);
 }
 
+#main-content {
+    /* Pull content up under the sticky header on mobile */
+    margin-top: -3.5rem;
+}
+
 @media (min-width: 768px) {
+    #main-content {
+        /* Pull content up under the sticky header on desktop */
+        margin-top: -5rem;
+    }
+
     .container {
         padding-left: var(--space-6);
         padding-right: var(--space-6);
@@ -379,17 +389,11 @@ img {
    ========================================================================= */
 
 .global-header {
-    border-bottom: 1px solid var(--border-primary);
-    padding: var(--space-3) 0;
-    position: absolute;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--bg-primary);
     z-index: 100;
-    backdrop-filter: blur(16px);
-    background-color: color-mix(in srgb, var(--bg-primary) 85%, transparent);
-    transition: all 0.3s ease;
 }
 
 .header-inner {
@@ -447,11 +451,7 @@ img {
 
 @media (min-width: 768px) {
     .global-header {
-        border-bottom: none;
-        padding: 0;
         top: var(--space-6);
-        background-color: transparent;
-        backdrop-filter: none;
     }
 
     .header-inner {
@@ -562,12 +562,12 @@ img {
     position: relative;
     z-index: 1;
     background-color: var(--bg-secondary);
-    min-height: 90vh;
+    min-height: calc(100vh - 6rem);
+    /* Accounting for sticky header */
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 5rem;
-    /* Space for the header */
+    padding-top: var(--space-8);
 }
 
 .hero-inner {
