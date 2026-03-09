@@ -6,7 +6,6 @@ import PricingSection from './components/PricingSection';
 import LogoCloud from './components/LogoCloud';
 import TestimonialsSection from './components/TestimonialsSection';
 import FAQSection from './components/FAQSection';
-import ProcessSection from './components/ProcessSection';
 import './index.css';
 
 import ZalcoLogo from './assets/logos/ZalcoLogo.svg';
@@ -149,7 +148,6 @@ function App() {
                 </div>
 
                 <ServicesSection />
-                <ProcessSection />
                 <PricingSection />
                 <TestimonialsSection />
                 <LogoCloud />
