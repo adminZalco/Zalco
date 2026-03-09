@@ -65,11 +65,11 @@ function App() {
         const newTheme = theme === 'dark' ? 'light' : 'dark';
         setTheme(newTheme);
         localStorage.setItem('theme', newTheme);
-        document.body.setAttribute('data-theme', newTheme);
+        document.documentElement.setAttribute('data-theme', newTheme);
     };
 
     useEffect(() => {
-        document.body.setAttribute('data-theme', theme);
+        document.documentElement.setAttribute('data-theme', theme);
 
         // Listen for system theme changes if user hasn't overridden
         const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -77,7 +77,7 @@ function App() {
             if (!localStorage.getItem('theme')) {
                 const newTheme = e.matches ? 'dark' : 'light';
                 setTheme(newTheme);
-                document.body.setAttribute('data-theme', newTheme);
+                document.documentElement.setAttribute('data-theme', newTheme);
             }
         };
 

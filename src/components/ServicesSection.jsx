@@ -5,17 +5,19 @@ import '../index.css';
 export default function ServicesSection() {
     const services = [
         { name: 'Web Design (Landing Pages)', icon: 'solar:document-text-bold-duotone' },
-        { name: 'Web App Design', icon: 'solar:monitor-smartphone-bold-duotone' },
-        { name: 'Mobile App Design', icon: 'solar:smartphone-bold-duotone' },
-        { name: 'Web App Development', icon: 'solar:programming-bold-duotone' },
-        { name: 'Mobile App Development', icon: 'solar:iphone-bold-duotone' },
-        { name: 'DevOps Services', icon: 'solar:server-square-bold-duotone' },
         { name: 'UI/UX Consultation', icon: 'solar:chat-round-line-bold-duotone' },
+        { name: 'Mobile App Design', icon: 'solar:smartphone-bold-duotone' },
+        { name: 'Mobile App Development', icon: 'solar:iphone-bold-duotone' },
+        { name: 'Web App Design', icon: 'solar:monitor-smartphone-bold-duotone' },
+        { name: 'Web App Development', icon: 'solar:programming-bold-duotone' },
+        { name: 'DevOps Services', icon: 'solar:server-square-bold-duotone' },
     ];
 
     const techStack = [
-        'logos:figma', 'logos:webflow', 'logos:framer', 'logos:react', 'logos:nodejs-icon', 'logos:typescript-icon', 'logos:aws', 'logos:google-cloud', 'logos:docker-icon', 'logos:kubernetes', 'logos:terraform-icon', 'logos:openai-icon', 'logos:google-gemini', 'logos:anthropic-icon'
+        'logos:figma', 'logos:webflow', 'logos:framer', 'logos:react', 'logos:nodejs-icon', 'logos:typescript-icon', 'logos:aws', 'logos:google-cloud', 'logos:docker-icon', 'logos:kubernetes', 'logos:terraform-icon', 'logos:openai-icon', 'logos:google-gemini', 'logos:claude-icon'
     ];
+
+    const needsInvert = ['logos:framer', 'logos:openai-icon'];
 
     return (
         <section id="services" className="services-section">
@@ -34,7 +36,7 @@ export default function ServicesSection() {
                             <div className="tech-stack-icons">
                                 {techStack.map((icon, index) => (
                                     <div key={index} className="tech-stack-icon-wrapper">
-                                        <Icon icon={icon} />
+                                        <Icon icon={icon} className={needsInvert.includes(icon) ? 'invert-on-dark' : ''} />
                                     </div>
                                 ))}
                             </div>
