@@ -61,11 +61,12 @@ export default function PricingSection() {
                             </div>
                             <hr className="pricing-divider" />
                             <ul className="pricing-checklist">
-                                <li><Icon icon="solar:check-circle-bold-duotone" /> 2 Senior Frontend & Backend Engineering</li>
-                                <li><Icon icon="solar:check-circle-bold-duotone" /> 1 Senior UI/UX Mobile & Web Design</li>
-                                <li><Icon icon="solar:check-circle-bold-duotone" /> 1 Senior DevOps & Cloud Architecture</li>
+                                <li><Icon icon="solar:check-circle-bold-duotone" /> Frontend & Backend Engineer</li>
+                                <li><Icon icon="solar:check-circle-bold-duotone" /> UI/UX Mobile & Web Design</li>
+                                <li><Icon icon="solar:check-circle-bold-duotone" /> DevOps & Cloud Architecture</li>
                                 <li><Icon icon="solar:check-circle-bold-duotone" /> Unlimited revisions</li>
                                 <li><Icon icon="solar:check-circle-bold-duotone" /> Direct slack channel</li>
+                                <li><Icon icon="solar:check-circle-bold-duotone" /> Some text</li>
                             </ul>
                             <div className="pricing-actions">
                                 <button className="brutalist-button brutalist-button--dark" onClick={() => window.open('https://cal.com/zalco/30min', '_blank')}>Get started</button>
