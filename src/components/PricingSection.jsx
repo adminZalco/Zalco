@@ -70,7 +70,6 @@ export default function PricingSection() {
                             </ul>
                             <div className="pricing-actions">
                                 <button className="brutalist-button brutalist-button--dark" onClick={() => window.open('https://cal.com/zalco/30min', '_blank')}>Get started</button>
-                                <span className="payment-note">Powered by Paypal</span>
                             </div>
                         </div>
                     </div>

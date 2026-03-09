@@ -47,6 +47,7 @@ function HighlightPill({ children, color = 'blue' }) {
 
 /* ─── Main App ─── */
 function App() {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [theme, setTheme] = useState(() => {
         // 1. Check local storage
         const savedTheme = localStorage.getItem('theme');
@@ -85,6 +86,12 @@ function App() {
         return () => mediaQuery.removeEventListener('change', handleChange);
     }, [theme]);
 
+    // Lock body scroll when mobile menu is open
+    useEffect(() => {
+        document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
+        return () => { document.body.style.overflow = ''; };
+    }, [mobileMenuOpen]);
+
     const marqueeItems = [
         '✦ Web Design', '✦ Web App Development', '✦ Mobile App Design', '✦ Mobile App Development', '✦ DevOps Services',
         '✦ Web Design', '✦ Web App Development', '✦ Mobile App Design', '✦ Mobile App Development', '✦ DevOps Services',
@@ -92,20 +99,46 @@ function App() {
     return (
         <>
             {/* ─── Header ─── */}
-            <header role="banner" className="global-header">
+            <header role="banner" className={`global-header ${mobileMenuOpen ? 'menu-open' : ''}`}>
                 <div className="container header-inner">
                     <a href="/" className="header-logo">
                         <img src={ZalcoLogo} alt="Zalco" style={{ height: '3rem', width: 'auto' }} />
                         <h1 className="logo-text">Zalco</h1>
                     </a>
-                    <nav aria-label="Primary Navigation" className="primary-nav">
-                        <a href="#services">Services</a>
-                        {/* <a href="#work">Work</a> */}
-                        <a href="#pricing">Pricing</a>
-                        <a href="#about">About</a>
-                    </nav>
-                    <div className="header-actions">
-                        <button className="brutalist-button brutalist-button--dark header-contact-btn" onClick={() => window.open('https://cal.com/zalco/15min', '_blank')}>Contact</button>
+
+                    {/* Hamburger — visible only on mobile via CSS */}
+                    <button
+                        className={`mobile-menu-btn ${mobileMenuOpen ? 'is-active' : ''}`}
+                        onClick={() => setMobileMenuOpen(prev => !prev)}
+                        aria-label="Toggle menu"
+                        aria-expanded={mobileMenuOpen}
+                    >
+                        <span className="bar bar-1" />
+                        <span className="bar bar-2" />
+                    </button>
+
+                    <div className={`nav-wrapper ${mobileMenuOpen ? 'is-open' : ''}`}>
+                        <nav aria-label="Primary Navigation" className="primary-nav">
+                            <a href="#services" onClick={() => setMobileMenuOpen(false)}>
+                                <span className="nav-number">01</span> Services
+                            </a>
+                            <a href="#pricing" onClick={() => setMobileMenuOpen(false)}>
+                                <span className="nav-number">02</span> Pricing
+                            </a>
+                            <a href="#about" onClick={() => setMobileMenuOpen(false)}>
+                                <span className="nav-number">03</span> About
+                            </a>
+                        </nav>
+                        <div className="header-actions">
+                            <button className="brutalist-button brutalist-button--dark header-contact-btn" onClick={() => window.open('https://cal.com/zalco/15min', '_blank')}>Contact</button>
+                        </div>
+                        <div className="nav-footer">
+                            <div className="bento-social-icons">
+                                <a href="#" aria-label="LinkedIn"><Icon icon="mdi:linkedin" /></a>
+                                <a href="#" aria-label="Twitter / X"><Icon icon="mdi:twitter" /></a>
+                            </div>
+                            <p className="nav-copyright"> © 2026 Zalco Technologies Pvt. Ltd.</p>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -194,13 +227,14 @@ function App() {
                             <a href="mailto:support@zalco.com">admin@zalco.io</a>
                             <a href="tel:+1023722742444">+91 841 784 2117</a>
                             <div className="bento-social-icons">
-                                <a href="#" aria-label="LinkedIn"><Icon icon="solar:linkedin-bold-duotone" /></a>
+                                <a href="#" aria-label="LinkedIn"><Icon icon="mdi:linkedin" /></a>
+                                <a href="#" aria-label="Twitter / X"><Icon icon="mdi:twitter" /></a>
                             </div>
                         </div>
                     </div>
 
                     <div className="bento-copyright-pill">
-                        © Zalco Technologies Pvt. Ltd. All Rights Reserved.
+                        © 2026 Zalco Technologies Pvt. Ltd.
                     </div>
                 </div>
             </footer>
