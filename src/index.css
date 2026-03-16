@@ -458,17 +458,17 @@ img {
     box-shadow: 4px 4px 0px var(--color-text-primary);
 }
 
-.brutalist-button--color-white {
+.brutalist-button--white {
     background-color: var(--color-text-inverse);
     color: var(--color-text-primary);
     border-color: var(--color-text-inverse);
 }
 
-.brutalist-button--color-white:hover {
+.brutalist-button--white:hover {
     background-color: var(--color-text-primary);
     color: var(--color-text-inverse);
     border-color: var(--color-text-primary);
-    box-shadow: 4px 4px 0px var(--color-white-alpha);
+    box-shadow: 4px 4px 0px var(--color-text-inverse);
 }
 
 /* =========================================================================
