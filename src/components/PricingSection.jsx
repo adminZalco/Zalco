@@ -61,9 +61,9 @@ export default function PricingSection() {
                             </div>
                             <hr className="pricing-divider" />
                             <ul className="pricing-checklist">
-                                <li><Icon icon="solar:check-circle-bold-duotone" /> Frontend & Backend Engineer</li>
-                                <li><Icon icon="solar:check-circle-bold-duotone" /> UI/UX Mobile & Web Design</li>
-                                <li><Icon icon="solar:check-circle-bold-duotone" /> DevOps & Cloud Architecture</li>
+                                <li><Icon icon="solar:check-circle-bold-duotone" /> Frontend & Backend</li>
+                                <li><Icon icon="solar:check-circle-bold-duotone" /> UI & UX Design</li>
+                                <li><Icon icon="solar:check-circle-bold-duotone" /> DevOps & Cloud</li>
                                 <li><Icon icon="solar:check-circle-bold-duotone" /> Unlimited revisions</li>
                                 <li><Icon icon="solar:check-circle-bold-duotone" /> Direct slack channel</li>
                                 <li><Icon icon="solar:check-circle-bold-duotone" /> Some text</li>
