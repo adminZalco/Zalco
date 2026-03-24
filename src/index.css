@@ -2332,10 +2332,9 @@ img {
 /* 3D tilted card */
 .service-3d-card {
     position: relative;
-    width: 240px;
+    width: 288px;
     background: var(--color-bg-surface);
     backdrop-filter: blur(8px);
-    border: 1px solid var(--color-border-default);
     border-radius: var(--radius-lg);
     box-shadow: 0 24px 48px var(--color-bg-overlay);
     transform: rotateX(12deg) rotateY(-12deg);
@@ -2391,7 +2390,7 @@ img {
 
 /* Inner content area */
 .service-card-inner {
-    padding: 12px;
+    padding: 1.5rem;
     flex: 1;
     position: relative;
 }
@@ -2399,8 +2398,8 @@ img {
 /* Comment bubble */
 .service-comment-bubble {
     position: absolute;
-    right: -100px;
-    top: 0;
+    right: -4rem;
+    top: 1rem;
     width: 150px;
     background: var(--color-bg-elevated);
     border: 1px solid var(--color-border-default);
@@ -2580,7 +2579,7 @@ img {
 }
 
 .service-wd-hero {
-    height: 36px;
+    height: 4rem;
     border-radius: 4px;
     background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(168, 85, 247, 0.2));
     border: 1px solid rgba(99, 102, 241, 0.2);
@@ -2752,7 +2751,7 @@ img {
 
 .service-phone-screen {
     flex: 1;
-    padding: 4px;
+    padding: 1rem 4px;
     display: flex;
     flex-direction: column;
     gap: 3px;

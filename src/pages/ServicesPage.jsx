@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Icon } from '@iconify/react';
+import RippleGrid from '../components/RippleGrid';
 import '../index.css';
 
 /* ─── Fade In on Scroll ─── */
@@ -98,12 +99,10 @@ const services = [
         visual: (
             <div className="service-inner-web-design">
                 <div className="service-wd-hero" />
-                <div className="service-wd-row">
-                    <div className="service-wd-block service-wd-block--purple" />
-                    <div className="service-wd-block service-wd-block--blue" />
-                    <div className="service-wd-block service-wd-block--purple" />
+                <div className="service-ux-mini-grid">
+                    <div className="service-ux-cell" /><div className="service-ux-cell" />
+                    <div className="service-ux-cell" /><div className="service-ux-cell" />
                 </div>
-                <div className="service-wd-footer" />
             </div>
         ),
     },
@@ -127,6 +126,7 @@ const services = [
                     <div className="service-ux-mini-grid">
                         <div className="service-ux-cell" /><div className="service-ux-cell" />
                         <div className="service-ux-cell" /><div className="service-ux-cell" />
+                        <div className="service-ux-cell" /><div className="service-ux-cell" />
                     </div>
                 </div>
             </div>
@@ -141,9 +141,9 @@ const services = [
         commentAuthor: 'MK',
         visual: (
             <div className="service-inner-code">
-                <div className="service-code-line"><span className="service-tok-purple">const</span> <span className="service-tok-blue">fetch</span> <span className="service-tok-white">= async</span> <span className="service-tok-white">(id) =&gt;</span> {'{'}</div>
-                <div className="service-code-line service-code-line--indent"><span className="service-tok-purple">const</span> <span className="service-tok-white">res</span> = <span className="service-tok-blue">await</span> <span className="service-tok-white">api.</span><span className="service-tok-green">get</span><span className="service-tok-white">(id);</span></div>
-                <div className="service-code-line service-code-line--indent"><span className="service-tok-purple">return</span> <span className="service-tok-white">res.</span><span className="service-tok-blue">data</span><span className="service-tok-white">;</span></div>
+                <div className="service-code-line"><span className="service-tok-purple">const</span> <span className="service-tok-blue">fetch</span> <span>= async</span> <span>(id) =&gt;</span> {'{'}</div>
+                <div className="service-code-line service-code-line--indent"><span className="service-tok-purple">const</span> <span>res</span> = <span className="service-tok-blue">await</span> <span>api.</span><span className="service-tok-green">get</span><span>(id);</span></div>
+                <div className="service-code-line service-code-line--indent"><span className="service-tok-purple">return</span> <span>res.</span><span className="service-tok-blue">data</span><span>;</span></div>
                 <div className="service-code-line">{'}'}</div>
                 <div className="service-code-cursor" />
             </div>
@@ -197,7 +197,7 @@ const services = [
                         <div className="service-md-component service-md-component--sm" />
                     </div>
                 </div>
-                <div className="service-phone service-phone--sm service-phone--offset">
+                <div className="service-phone service-phone--sm">
                     <div className="service-phone-notch" />
                     <div className="service-phone-screen">
                         <div className="service-md-grid">
@@ -205,6 +205,12 @@ const services = [
                             <div className="service-md-grid-cell" /><div className="service-md-grid-cell" />
                         </div>
                         <div className="service-md-btn" />
+                    </div>
+                    <div className="service-phone-nav">
+                        <div className="service-nav-dot service-nav-dot--active" />
+                        <div className="service-nav-dot" />
+                        <div className="service-nav-dot" />
+                        <div className="service-nav-dot" />
                     </div>
                 </div>
             </div>
@@ -289,6 +295,7 @@ export default function ServicesPage() {
 
             {/* ─── Hero ─── */}
             <section className="services-hero section-padding">
+                <RippleGrid />
                 {/* <div className="spline-container absolute top-0 left-0 w-full h-full -z-10">
                     <iframe src="https://my.spline.design/bganimation-xIKR0ZTWWoifZLAKROH7y9YL" frameBorder="0" width="100%" height="100%" id="aura-spline"></iframe>
                 </div> */}
@@ -313,9 +320,6 @@ export default function ServicesPage() {
                             >
                                 Book a Discovery Call
                             </button>
-                            <a href="#service-cards" className="text-link">
-                                Explore services <Icon icon="solar:arrow-down-bold-duotone" />
-                            </a>
                         </div>
                     </FadeSection>
                 </div>
