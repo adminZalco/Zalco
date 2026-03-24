@@ -82,7 +82,6 @@ Map grey scale values to semantic roles. Use these exact token names for consist
 | Token | Light value | Dark value | Usage |
 |---|---|---|---|
 | `--color-border-default` | grey-20 | grey-70 | Default dividers, card edges |
-| `--color-border-strong` | grey-40 | grey-50 | Emphasized borders |
 | `--color-border-subtle` | grey-10 | grey-80 | Very light dividers |
 | `--color-border-focus` | primary color | primary color | Focus rings |
 

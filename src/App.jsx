@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import RippleGrid from './components/RippleGrid';
 import ServicesSection from './components/ServicesSection';
@@ -6,6 +7,7 @@ import PricingSection from './components/PricingSection';
 import LogoCloud from './components/LogoCloud';
 import TestimonialsSection from './components/TestimonialsSection';
 import FAQSection from './components/FAQSection';
+import ServicesPage from './pages/ServicesPage';
 import './index.css';
 
 import ZalcoLogo from './assets/logos/ZalcoLogo.svg';
@@ -101,10 +103,10 @@ function App() {
             {/* ─── Header ─── */}
             <header role="banner" className={`global-header ${mobileMenuOpen ? 'menu-open' : ''}`}>
                 <div className="container header-inner">
-                    <a href="/" className="header-logo">
+                    <Link to="/" className="header-logo">
                         <img src={ZalcoLogo} alt="Zalco" style={{ height: '3rem', width: 'auto' }} />
                         <h1 className="logo-text">Zalco</h1>
-                    </a>
+                    </Link>
 
                     {/* Hamburger — visible only on mobile via CSS */}
                     <button
@@ -119,9 +121,9 @@ function App() {
 
                     <div className={`nav-wrapper ${mobileMenuOpen ? 'is-open' : ''}`}>
                         <nav aria-label="Primary Navigation" className="primary-nav">
-                            <a href="#services" onClick={() => setMobileMenuOpen(false)}>
+                            <Link to="/services" onClick={() => setMobileMenuOpen(false)}>
                                 <span className="nav-number">01</span> Services
-                            </a>
+                            </Link>
                             <a href="#pricing" onClick={() => setMobileMenuOpen(false)}>
                                 <span className="nav-number">02</span> Pricing
                             </a>
@@ -143,50 +145,55 @@ function App() {
                 </div>
             </header>
 
-            <main id="main-content" role="main">
-                {/* ─── Hero ─── */}
-                <section aria-labelledby="hero-heading" className="hero-section section-padding">
-                    <RippleGrid />
-                    <div className="container hero-inner hero-inner--centered">
-                        <div className="hero-content hero-content--centered">
-                            <FadeSection delay={100}>
-                                <h1 id="hero-heading">
-                                    <HighlightPill color="blue">Unfair</HighlightPill> advantage{'\n'}for your product
-                                </h1>
-                            </FadeSection>
-                            <FadeSection delay={200}>
-                                <p className="hero-subtext">
-                                    A tight-knit team of designers, developers, and DevOps engineers building powerful digital products for startups and individuals.
-                                </p>
-                            </FadeSection>
-                            <FadeSection delay={300}>
-                                <div className="hero-actions">
-                                    <button className="brutalist-button brutalist-button--dark" onClick={() => window.open('https://cal.com/zalco/15min', '_blank')}>Start a Project</button>
-                                    <a href="#services" className="text-link">
-                                        Explore Capabilities <Icon icon="solar:arrow-right-up-bold-duotone" />
-                                    </a>
+            <Routes>
+                <Route path="/services" element={<ServicesPage />} />
+                <Route path="*" element={
+                    <main id="main-content" role="main">
+                        {/* ─── Hero ─── */}
+                        <section aria-labelledby="hero-heading" className="hero-section section-padding">
+                            <RippleGrid />
+                            <div className="container hero-inner hero-inner--centered">
+                                <div className="hero-content hero-content--centered">
+                                    <FadeSection delay={100}>
+                                        <h1 id="hero-heading">
+                                            <HighlightPill color="blue">Unfair</HighlightPill> advantage{'\n'}for your product
+                                        </h1>
+                                    </FadeSection>
+                                    <FadeSection delay={200}>
+                                        <p className="hero-subtext">
+                                            A tight-knit team of designers, developers, and DevOps engineers building powerful digital products for startups and individuals.
+                                        </p>
+                                    </FadeSection>
+                                    <FadeSection delay={300}>
+                                        <div className="hero-actions">
+                                            <button className="brutalist-button brutalist-button--dark" onClick={() => window.open('https://cal.com/zalco/15min', '_blank')}>Start a Project</button>
+                                            <Link to="/services" className="text-link">
+                                                Explore Capabilities <Icon icon="solar:arrow-right-up-bold-duotone" />
+                                            </Link>
+                                        </div>
+                                    </FadeSection>
                                 </div>
-                            </FadeSection>
+                            </div>
+                        </section>
+
+                        {/* ─── Marquee ─── */}
+                        <div className="marquee-strip" aria-hidden="true">
+                            <div className="marquee-track">
+                                {marqueeItems.map((item, i) => (
+                                    <span key={i} className="marquee-item">{item}</span>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                </section>
 
-                {/* ─── Marquee ─── */}
-                <div className="marquee-strip" aria-hidden="true">
-                    <div className="marquee-track">
-                        {marqueeItems.map((item, i) => (
-                            <span key={i} className="marquee-item">{item}</span>
-                        ))}
-                    </div>
-                </div>
+                        <ServicesSection />
+                        <PricingSection />
+                        <TestimonialsSection />
+                        <LogoCloud />
+                        <FAQSection />
 
-                <ServicesSection />
-                <PricingSection />
-                <TestimonialsSection />
-                <LogoCloud />
-                <FAQSection />
-
-            </main>
+                    </main>
+                } />
+            </Routes>
 
             {/* ─── Footer (unchanged) ─── */}
             <footer role="contentinfo" className="bento-footer">
@@ -219,7 +226,7 @@ function App() {
                         <div className="bento-link-col">
                             <h4>Company</h4>
                             <a href="#">Home</a>
-                            <a href="#">Service</a>
+                            <Link to="/services">Services</Link>
                             <a href="#">About</a>
                         </div>
                         <div className="bento-link-col bento-social-col">
