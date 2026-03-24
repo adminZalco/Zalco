@@ -368,7 +368,6 @@ export default function ServicesPage() {
                 <div className="container">
                     <FadeSection>
                         <div className="section-header section-header--center">
-                            <p className="section-label">Tools &amp; technologies</p>
                             <h2>The stack behind<br /><span className="text-gray-400 font-normal">every delivery.</span></h2>
                         </div>
                     </FadeSection>
