@@ -8,6 +8,7 @@ import LogoCloud from './components/LogoCloud';
 import TestimonialsSection from './components/TestimonialsSection';
 import FAQSection from './components/FAQSection';
 import ServicesPage from './pages/ServicesPage';
+import AboutPage from './pages/AboutPage';
 import './index.css';
 
 import ZalcoLogo from './assets/logos/ZalcoLogo.svg';
@@ -124,12 +125,9 @@ function App() {
                             <Link to="/services" onClick={() => setMobileMenuOpen(false)}>
                                 <span className="nav-number">01</span> Services
                             </Link>
-                            <a href="#pricing" onClick={() => setMobileMenuOpen(false)}>
-                                <span className="nav-number">02</span> Pricing
-                            </a>
-                            <a href="#about" onClick={() => setMobileMenuOpen(false)}>
-                                <span className="nav-number">03</span> About
-                            </a>
+                            <Link to="/about" onClick={() => setMobileMenuOpen(false)}>
+                                <span className="nav-number">02</span> About
+                            </Link>
                         </nav>
                         <div className="header-actions">
                             <button className="brutalist-button brutalist-button--dark header-contact-btn" onClick={() => window.open('https://cal.com/zalco/15min', '_blank')}>Contact</button>
@@ -147,6 +145,7 @@ function App() {
 
             <Routes>
                 <Route path="/services" element={<ServicesPage />} />
+                <Route path="/about" element={<AboutPage />} />
                 <Route path="*" element={
                     <main id="main-content" role="main">
                         {/* ─── Hero ─── */}
@@ -225,9 +224,9 @@ function App() {
                     <div className="bento-footer-links">
                         <div className="bento-link-col">
                             <h4>Company</h4>
-                            <a href="#">Home</a>
+                            <Link to="/">Home</Link>
                             <Link to="/services">Services</Link>
-                            <a href="#">About</a>
+                            <Link to="/about">About</Link>
                         </div>
                         <div className="bento-link-col bento-social-col">
                             <h4>Social</h4>
