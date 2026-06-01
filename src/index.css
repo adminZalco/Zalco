@@ -3239,7 +3239,7 @@ img {
 .process-steps {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-4);
+    gap: var(--space-6);
     margin-top: var(--space-8);
     position: relative;
 }
@@ -3247,11 +3247,19 @@ img {
 @media (min-width: 768px) {
     .process-steps {
         grid-template-columns: repeat(4, 1fr);
-        gap: var(--space-5);
+        gap: 0;
     }
 
     .process-steps::before {
-        display: none;
+        content: '';
+        position: absolute;
+        top: 2.15rem; /* center height of services-step-number */
+        left: 12.5%;
+        right: 12.5%;
+        height: 1px;
+        background: var(--color-border-subtle);
+        z-index: 0;
+        display: block;
     }
 }
 
@@ -3263,11 +3271,6 @@ img {
     padding: var(--space-6);
     position: relative;
     z-index: 1;
-    background-color: var(--bento-card-bg);
-    border: 1px solid var(--bento-card-border);
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    transition: background-color 0.5s ease, border-color 0.5s ease, transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 @media (min-width: 768px) {
@@ -3275,6 +3278,21 @@ img {
         align-items: center;
         text-align: center;
     }
+}
+
+.about-values-grid .services-process-step {
+    background-color: var(--bento-card-bg);
+    border: 1px solid var(--bento-card-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: background-color 0.5s ease, border-color 0.5s ease, transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.process-steps .services-process-step {
+    align-items: center;
+    text-align: center;
+    gap: var(--space-4);
+    padding: var(--space-4) 0;
 }
 
 .services-step-number {
@@ -3288,6 +3306,13 @@ img {
     border-radius: 99px;
 }
 
+.process-steps .services-step-number {
+    background-color: var(--color-bg-surface);
+    padding: 2px 12px;
+    z-index: 2;
+    position: relative;
+}
+
 .services-step-icon {
     width: 4rem;
     height: 4rem;
@@ -3299,6 +3324,22 @@ img {
     justify-content: center;
     font-size: 2rem;
     color: var(--color-interactive-default);
+}
+
+.process-steps .services-step-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 1px solid var(--color-border-subtle);
+    background-color: var(--color-bg-surface);
+    position: relative;
+    z-index: 2;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.process-steps .services-process-step:hover .services-step-icon {
+    border-color: var(--color-interactive-default);
+    transform: scale(1.05);
 }
 
 .services-step-title {
@@ -4449,7 +4490,7 @@ img {
 
 /* ─── Bento Expansions ─── */
 .about-stat-box::before,
-.services-process-step::before,
+.about-values-grid .services-process-step::before,
 .about-team-card::before {
     content: '';
     position: absolute;
@@ -4466,7 +4507,7 @@ img {
 }
 
 .about-stat-box .bento-card-spotlight,
-.services-process-step .bento-card-spotlight,
+.about-values-grid .services-process-step .bento-card-spotlight,
 .about-team-card .bento-card-spotlight {
     position: absolute;
     inset: 0;
@@ -4478,20 +4519,20 @@ img {
 }
 
 .about-stat-box:hover .bento-card-spotlight,
-.services-process-step:hover .bento-card-spotlight,
+.about-values-grid .services-process-step:hover .bento-card-spotlight,
 .about-team-card:hover .bento-card-spotlight {
     opacity: 1;
 }
 
 .about-stat-box > *,
-.services-process-step > *,
+.about-values-grid .services-process-step > *,
 .about-team-card > * {
     position: relative;
     z-index: 4;
 }
 
 .about-stat-box:hover,
-.services-process-step:hover,
+.about-values-grid .services-process-step:hover,
 .about-team-card:hover {
     background-color: var(--bento-card-hover-bg);
     border-color: var(--bento-card-hover-border);

@@ -498,12 +498,8 @@ export default function ServicesPage() {
                     <div className="process-steps">
                         {processSteps.map((step, i) => (
                             <FadeSection key={step.number} delay={i * 100}>
-                                <div 
-                                    className="services-process-step"
-                                    onMouseMove={handleMouseMove}
-                                    onMouseLeave={handleMouseLeave}
-                                >
-                                    <div className="bento-card-spotlight"></div>
+                                <div className="services-process-step">
+                                    <div className="services-step-number">{step.number}</div>
                                     <div className="services-step-icon">
                                         <Icon icon={step.icon} />
                                     </div>
