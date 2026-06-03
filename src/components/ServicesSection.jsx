@@ -36,17 +36,16 @@ export default function ServicesSection() {
             <div className="bento-container">
                 {/* Header Area */}
                 <div className="bento-header">
-                    <h2 className="bento-title">
-                        <span className="bento-title-muted">End-to-end digital services</span>
-                        <br />
-                        <span className="bento-title-main">that supercharge your</span>
-                        <br />
-                        <span className="bento-title-main">business.</span>
-                    </h2>
+                    <div>
+                        <h2 className="bento-title">
+                            <span className="text-gray-400 font-normal">End-to-end digital services</span><br />
+                            that supercharge your<br />
+                            business.
+                        </h2>
+                    </div>
                     <div className="bento-header-right">
-                        <p className="bento-subtitle">
-                            We don't just build websites; we build ecosystems. Our approach integrates rigorous strategy with immersive design.
-                        </p>
+                        <p className="font-semibold text-primary">High-performance engineering meets premium design.</p>
+                        <p>We don't just build websites; we build ecosystems. Our approach integrates rigorous strategy with immersive design to deliver exceptional value.</p>
                         <Link to="/services#service-cards" className="bento-link">
                             View all services
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

@@ -3,6 +3,8 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import RippleGrid from './components/RippleGrid';
 import ServicesSection from './components/ServicesSection';
+import ProcessSection from './components/ProcessSection';
+import WhyChooseUsSection from './components/WhyChooseUsSection';
 import PricingSection from './components/PricingSection';
 import LogoCloud from './components/LogoCloud';
 import TestimonialsSection from './components/TestimonialsSection';
@@ -185,6 +187,8 @@ function App() {
                         </div>
 
                         <ServicesSection />
+                        <ProcessSection />
+                        <WhyChooseUsSection />
                         <PricingSection />
                         <TestimonialsSection />
                         <LogoCloud />

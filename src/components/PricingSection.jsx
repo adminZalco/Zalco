@@ -19,24 +19,6 @@ export default function PricingSection() {
                     </div>
                 </div>
 
-                <div className="pricing-features">
-                    <div className="pricing-feature">
-                        <div className="feature-icon"><Icon icon="solar:chat-round-check-bold-duotone" /></div>
-                        <h4>Dedicated Team</h4>
-                        <p>Direct communication with the designers, developers, and DevOps engineers doing the work.</p>
-                    </div>
-                    <div className="pricing-feature">
-                        <div className="feature-icon"><Icon icon="solar:pen-bold-duotone" /></div>
-                        <h4>End-to-end Solutions</h4>
-                        <p>From UI/UX strategy to highly scalable cloud deployments and mobile applications.</p>
-                    </div>
-                    <div className="pricing-feature">
-                        <div className="feature-icon"><Icon icon="solar:rocket-bold-duotone" /></div>
-                        <h4>Startup Speed</h4>
-                        <p>We work in agile sprints to deliver production-ready features fast.</p>
-                    </div>
-                </div>
-
                 <div className="pricing-cards">
                     {/* Subscription Card */}
                     <div className="pricing-card-subscription">
