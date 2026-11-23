@@ -56,44 +56,34 @@ const coreValues = [
 
 const teamMembers = [
     {
-        name: 'Poornanand Verma',
-        role: 'Senior Software Engineer',
-        image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Marcus&backgroundColor=b6e3f4'
-    },
-    {
         name: 'Prateek Singh',
-        role: 'Senior Product Designer',
+        role: 'Director & CEO',
         image: 'https://api.dicebear.com/7.x/notionists/svg?seed=David&backgroundColor=c0aede'
     },
     {
-        name: 'Amit Pandey',
-        role: 'Senior Devops Engineer',
-        image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Arthur&backgroundColor=ffd5dc'
-    },
-    {
-        name: 'Kirti Awasthi',
-        role: 'Senior Cloud Engineer',
-        image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Nolan&backgroundColor=f8d7da'
-    },
-    {
-        name: 'Avinash Tripathi',
-        role: 'Senior Software Engineer',
-        image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Justin&backgroundColor=d1e7dd'
-    },
-    {
-        name: 'Ajay Singh',
-        role: 'Web Designer',
-        image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Sarah&backgroundColor=ffdfbf'
-    },
-    {
-        name: 'Anurag Verma',
-        role: 'Backend Engineer',
-        image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Cody&backgroundColor=fff3cd'
+        name: 'Poornanand Verma',
+        role: 'Director & CTO',
+        image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Marcus&backgroundColor=b6e3f4'
     },
     {
         name: 'Vikas Gupta',
-        role: 'Frontend Engineer',
+        role: 'Software Engineer',
         image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Oliver&backgroundColor=cff4fc'
+    },
+    {
+        name: 'Suryansh Pal',
+        role: 'Software Engineer',
+        image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Arthur&backgroundColor=ffd5dc'
+    },
+    {
+        name: 'Anurag Verma',
+        role: 'Technical Sales',
+        image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Cody&backgroundColor=fff3cd'
+    },
+    {
+        name: 'Abhishek Verma',
+        role: 'AI/ML Engineer',
+        image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Justin&backgroundColor=d1e7dd'
     }
 ];
 

@@ -103,7 +103,7 @@ export default function WhyChooseUsSection() {
                             <div className="bento-card-spotlight"></div>
                             <div className="why-choose-card-top">
                                 <div className="why-choose-icon-wrap">
-                                    <Icon icon="solar:medal-ribbons-bold-duotone" />
+                                    <Icon icon="solar:medal-ribbon-bold-duotone" />
                                 </div>
                             </div>
                             <div className="why-choose-card-bottom">

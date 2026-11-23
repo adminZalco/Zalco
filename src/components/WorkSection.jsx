@@ -1,50 +1,8 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom';
+import { projects } from '../data/projects';
 import '../index.css';
-
-/*
- * Real client projects delivered by Zalco.
- * Only add facts the client is comfortable having public.
- */
-const projects = [
-    {
-        client: 'Triply',
-        by: 'Flix Logix',
-        industry: 'Mobility',
-        icon: 'solar:bus-bold-duotone',
-        title: 'Office cab platform',
-        description:
-            'A complete application for Triply to run office commutes: employees book their rides and the operations team manages trips from a single platform.',
-        tags: ['End-to-end product', 'UI/UX', 'Web & mobile'],
-    },
-    {
-        client: 'Barosa',
-        industry: 'E-commerce',
-        icon: 'solar:watch-round-bold-duotone',
-        title: 'Authentic watch & antiques store',
-        description:
-            'An online reselling platform for authentic watches and antique items, built to showcase premium pieces and make buying them simple and trustworthy.',
-        tags: ['E-commerce', 'UI/UX', 'Web app'],
-    },
-    {
-        client: 'SK Engineers',
-        industry: 'Construction',
-        icon: 'solar:buildings-2-bold-duotone',
-        title: 'Construction management app',
-        description:
-            'An operations platform for a construction company to record site purchases, manage master data and control access by role, in English and Hindi.',
-        tags: ['Mobile app', 'Web dashboard', 'React Native', 'Spring Boot', 'PostgreSQL'],
-    },
-    {
-        client: 'Ink & Clink',
-        industry: 'Gifting',
-        icon: 'solar:gift-bold-duotone',
-        title: 'Hamper business management',
-        description:
-            'A management app for a hamper gifting company, including GST-ready invoicing with a live A4 preview, PDF download, invoice history and a sales dashboard.',
-        tags: ['Web app', 'Next.js', 'Supabase', 'PDF invoicing'],
-    },
-];
 
 /*
  * Client testimonials. Add ONLY real quotes, with the client's permission:
@@ -89,6 +47,12 @@ export default function WorkSection() {
                             </ul>
                         </article>
                     ))}
+                </div>
+
+                <div className="work-more">
+                    <Link to="/work" className="text-link">
+                        See all projects <Icon icon="solar:arrow-right-up-bold-duotone" />
+                    </Link>
                 </div>
 
                 {testimonials.length > 0 && (

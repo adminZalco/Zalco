@@ -68,15 +68,13 @@ export default function FAQSection() {
 
                     <div className="faq-right">
                         <div className="cta-card">
-                            <img
-                                src="https://i.pravatar.cc/150?img=11"
-                                alt="Profile"
-                                className="cta-avatar"
-                            />
+                            <span className="cta-avatar cta-avatar--icon" aria-hidden="true">
+                                <Icon icon="solar:chat-round-dots-bold-duotone" />
+                            </span>
                             <h3 className="cta-title">Still not sure?</h3>
                             <h3 className="cta-subtitle">Book a free discovery call.</h3>
                             <p className="cta-desc">
-                                Give me a shout if you need specific advice or have more questions.
+                                Give us a shout if you need specific advice or have more questions.
                             </p>
                             <button className="brutalist-button brutalist-button--dark w-full cta-button" onClick={() => window.open('https://cal.com/zalco/15min', '_blank')}>
                                 <Icon icon="solar:calendar-bold-duotone" /> Schedule Call

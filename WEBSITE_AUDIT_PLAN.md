@@ -24,10 +24,22 @@ Prepared: 23 Nov 2026 · Repo: `adminZalco/Zalco` (React 18 + Vite, deployed to 
 | 23 Nov 2026 | About "Get Started" button | **Done** | It pointed to a non-existent `/#contact`; it now opens the cal.com discovery call |
 | 23 Nov 2026 | Accessibility 6.7 | **Done** | Header logo is no longer an `<h1>` (one `<h1>` per page) |
 | 23 Nov 2026 | H1–H7 Repo hygiene | **Done** | `dist/` and `.DS_Store` untracked and ignored · `test_browser.mjs` deleted · unused `public/assets/process/*.png` (2.9 MB) deleted · unused `three`, `@react-three/*`, `animejs` removed · package renamed `zalco-website` 1.0.0 · README added |
+| 23 Nov 2026 | Navigation | **Done (local)** | Header is now Services · Work · Pricing · About + Contact button (to the new Contact page, not cal.com). Footer lists the same pages plus a WhatsApp link |
+| 23 Nov 2026 | New Work page `/work` | **Done (local)** | [WorkPage.jsx](src/pages/WorkPage.jsx): one section per client project with "What we built" and tags, plus a call to action. Project facts live in [src/data/projects.js](src/data/projects.js), shared with the home cards and logo strip |
+| 23 Nov 2026 | New Contact page `/contact` | **Done (local)** | [ContactPage.jsx](src/pages/ContactPage.jsx): Book a call · WhatsApp · Email · Phone cards, registered office with Google map, legal name, CIN and incorporation date. No form yet (needs an inbox decision). Contact details live in [src/data/company.js](src/data/company.js) |
+| 23 Nov 2026 | P5 Logo strip | **Done (local)** | "Trusted by growing businesses" with Triply, Barosa, SK Engineers, Ink & Clink. Moved to just under the hero (6.4) |
+| 23 Nov 2026 | P7 FAQ photo | **Done (local)** | Stock photo replaced with a chat-icon avatar; "Give me a shout" is now "Give us a shout" |
+| 23 Nov 2026 | P6 Team, P9 stats | **Kept by decision** | Team section left as is; 99.9% / 0.01% stats confirmed real |
+| 23 Nov 2026 | UI 6.2 / 6.6 | **Done (local)** | Floating WhatsApp button on every page (`wa.me/918417842117`) · home order is Hero → Services → Work → Process → Why us → Pricing → Clients strip → FAQ |
+| 24 Nov 2026 | Team & WhatsApp | **Done (local)** | Team reduced to 6: Prateek Singh (Director & CEO), Poornanand Verma (Director & CTO), Vikas Gupta (Software Engineer), Suryansh Pal (Software Engineer), Anurag Verma (Technical Sales), Abhishek Verma (AI/ML Engineer); grid is 3 per row. Company phone and all WhatsApp links are now +91 90444 99810, presented as Zalco's number |
+| 24 Nov 2026 | Scrolling strips & icon | **Fixed (local)** | Both strips loop without a blank gap or jump; missing "Production-Proven Specs" icon fixed (misspelled icon name) |
+| 23 Nov 2026 | Owner feedback | **Reverted (local)** | Hero line restored to the original (no "Lucknow") · client strip moved back away from the services strip, just above the FAQ · CIN and street address removed from the footer, Contact page (map too) and JSON-LD, by owner's decision |
 
 Checked: production build passes. The built site was tested as static files (like GitHub Pages): `/about`, `/services`, `/services#devops-cloud` and `/` all open directly with the correct title and canonical URL, navigation scrolls to the top, and all footer links are correct, with no console errors. New sections were reviewed in light and dark mode at 1440 px and 390 px.
 
-**Not done yet (needs your input or decision):** P5 logo strip · P6 team photos and director titles · P7 FAQ photo · P9 "99.9%" stats · Contact page, Privacy, Terms, Refund pages · real client quotes · UI items 6.1–6.6, 6.8 · off-site items (Google Business Profile, Search Console). ESLint has no config file in the repo, so `npm run lint` does not run. The old single-card pricing CSS is still in `index.css`, unused.
+Second round (nav, Work, Contact, UI): built and checked locally. `/work` and `/contact` open directly with their own titles, the Pricing tab scrolls to the pricing section, the menu fits at 800 px and on mobile, and there are no console errors. **Nothing from either round is committed or deployed. Waiting for the owner's review.**
+
+**Not done yet:** Privacy, Terms, Refund pages · contact form (needs an inbox) · real client quotes · confirm `+91 841 784 2117` is on WhatsApp · off-site items (Google Business Profile, Search Console). ESLint has no config file in the repo, so `npm run lint` does not run. The old single-card pricing CSS is still in `index.css`, unused.
 
 **Still open from this step**
 - Send real client quotes (text, name, role, optional photo) to switch the testimonials block on.
