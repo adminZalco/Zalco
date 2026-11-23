@@ -1,7 +1,7 @@
 {
-  "name": "zalco-new",
+  "name": "zalco-website",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,13 +13,9 @@
   },
   "dependencies": {
     "@iconify/react": "^5.2.0",
-    "@react-three/drei": "^9.122.0",
-    "@react-three/fiber": "^8.18.0",
-    "animejs": "^4.3.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.13.2",
-    "three": "^0.183.2"
+    "react-router-dom": "^7.13.2"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

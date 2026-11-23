@@ -2,6 +2,58 @@ import React from 'react';
 import { Icon } from '@iconify/react';
 import '../index.css';
 
+const plans = [
+    {
+        id: 'starter',
+        name: 'Starter',
+        tagline: 'For landing pages, MVPs and steady feature work.',
+        price: '$999',
+        priceInr: '₹79,999',
+        features: [
+            'UI/UX design',
+            'Website or web app development',
+            'Bug fixes & small features',
+            'Weekly progress updates',
+            'Email & WhatsApp support',
+        ],
+        cta: 'Get started',
+        link: 'https://cal.com/zalco/30min',
+    },
+    {
+        id: 'growth',
+        name: 'Growth',
+        badge: 'Most popular for startups',
+        tagline: 'A dedicated product team for growing businesses.',
+        price: '$2,499',
+        priceInr: '₹1,99,999',
+        features: [
+            'Everything in Starter',
+            'Frontend & backend development',
+            'Mobile apps (iOS & Android)',
+            'DevOps & cloud setup',
+            'Dedicated Slack channel',
+            'Priority turnaround',
+        ],
+        cta: 'Get started',
+        link: 'https://cal.com/zalco/30min',
+        featured: true,
+    },
+    {
+        id: 'custom',
+        name: 'Custom',
+        tagline: 'For larger products and fixed-scope builds.',
+        price: "Let's talk",
+        features: [
+            'Custom quote for your scope',
+            'Fixed-price or monthly options',
+            'Milestone-based payments',
+            'Dedicated project manager',
+        ],
+        cta: 'Get a quote',
+        link: 'https://cal.com/zalco/30min',
+    },
+];
+
 export default function PricingSection() {
     return (
         <section id="pricing" className="pricing-section-wrapper">
@@ -15,62 +67,65 @@ export default function PricingSection() {
                     </div>
                     <div className="pricing-description">
                         <p className="font-semibold text-primary">Clear costs. High impact.</p>
-                        <p>Select from an ongoing development retainer or individual project terms.</p>
+                        <p>Start with a monthly plan, or talk to us about a custom project. Billed monthly.</p>
                     </div>
                 </div>
 
-                <div className="pricing-cards">
-                    {/* Subscription Card */}
-                    <div className="pricing-card-subscription">
-                        <div className="subscription-visual">
-                            <div className="subscription-badge">Most Popular for Startups</div>
-                            <h3>Retainer services<br />for scalable growth.</h3>
-                            <div className="availability-badge">
-                                <span className="status-dot"></span>
-                                Hire us today
+                <div className="pricing-tiers">
+                    {plans.map((plan) => (
+                        <article
+                            key={plan.id}
+                            className={`pricing-tier pricing-tier--${plan.id}${plan.featured ? ' pricing-tier--featured' : ''}`}
+                            aria-labelledby={`plan-${plan.id}`}
+                        >
+                            <div className="pricing-tier__head">
+                                <h3 id={`plan-${plan.id}`} className="pricing-tier__name">{plan.name}</h3>
+                                {plan.badge && <span className="subscription-badge pricing-tier__badge">{plan.badge}</span>}
                             </div>
-                            <p className="visual-desc">We use simple, transparent pricing to give you peace of mind.</p>
-                        </div>
+                            <p className="pricing-tier__tagline">{plan.tagline}</p>
 
-                        <div className="subscription-details">
-                            <div className="details-header">
-                                <h4>Full Stack Retainer</h4>
-                                <p>One flat monthly rate for continuous design, development, and DevOps support.</p>
+                            <div className="pricing-tier__price">
+                                {plan.priceInr ? (
+                                    <>
+                                        <p className="price-block">
+                                            <span className="price">{plan.price}</span>
+                                            <span className="period">/ month</span>
+                                        </p>
+                                        <p className="pricing-tier__inr">{plan.priceInr} / month in India</p>
+                                    </>
+                                ) : (
+                                    <>
+                                        <p className="price-block">
+                                            <span className="price price--text">{plan.price}</span>
+                                        </p>
+                                        <p className="pricing-tier__inr">Scoped to your project</p>
+                                    </>
+                                )}
                             </div>
-                            <div className="price-block">
-                                <span className="price">$5,000</span>
-                                <span className="period">/ month</span>
-                            </div>
+
                             <hr className="pricing-divider" />
-                            <ul className="pricing-checklist">
-                                <li><Icon icon="solar:check-circle-bold-duotone" /> Frontend & Backend</li>
-                                <li><Icon icon="solar:check-circle-bold-duotone" /> UI & UX Design</li>
-                                <li><Icon icon="solar:check-circle-bold-duotone" /> DevOps & Cloud</li>
-                                <li><Icon icon="solar:check-circle-bold-duotone" /> Unlimited revisions</li>
-                                <li><Icon icon="solar:check-circle-bold-duotone" /> Direct slack channel</li>
-                                <li><Icon icon="solar:check-circle-bold-duotone" /> Some text</li>
-                            </ul>
-                            <div className="pricing-actions">
-                                <button className="brutalist-button brutalist-button--dark" onClick={() => window.open('https://cal.com/zalco/30min', '_blank')}>Get started</button>
-                            </div>
-                        </div>
-                    </div>
 
-                    {/* Single Project Card */}
-                    <div className="pricing-card-single">
-                        <div className="single-content">
-                            <h3>Fixed Scope Project</h3>
-                            <p>Comprehensive agency services for major launches. Custom quotes from product strategy to robust multi-platform site builds.</p>
-                        </div>
-                        <ul className="pricing-checklist pricing-checklist--light">
-                            <li><Icon icon="solar:check-circle-bold-duotone" /> Priority delivery & scope</li>
-                            <li><Icon icon="solar:check-circle-bold-duotone" /> Dedicated account</li>
-                            <li><Icon icon="solar:check-circle-bold-duotone" /> Flexible iteration</li>
-                            <li><Icon icon="solar:check-circle-bold-duotone" /> Milestone payments</li>
-                        </ul>
-                        <button className="brutalist-button brutalist-button--white" onClick={() => window.open('https://cal.com/zalco/30min', '_blank')}>Get quote</button>
-                    </div>
+                            <ul className="pricing-tier__list">
+                                {plan.features.map((f) => (
+                                    <li key={f}>
+                                        <Icon icon="solar:check-circle-bold-duotone" aria-hidden="true" /> {f}
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <button
+                                className={`brutalist-button ${plan.id === 'starter' ? 'brutalist-button--dark' : plan.featured ? 'brutalist-button--accent' : 'brutalist-button--white'} pricing-tier__cta`}
+                                onClick={() => window.open(plan.link, '_blank', 'noopener')}
+                            >
+                                {plan.cta}
+                            </button>
+                        </article>
+                    ))}
                 </div>
+
+                <p className="pricing-footnote">
+                    Not sure which plan fits? <a href="https://cal.com/zalco/15min" target="_blank" rel="noopener noreferrer">Book a free 15-minute call</a>.
+                </p>
             </div>
         </section>
     );

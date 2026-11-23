@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import RippleGrid from './components/RippleGrid';
 import ServicesSection from './components/ServicesSection';
@@ -7,10 +7,11 @@ import ProcessSection from './components/ProcessSection';
 import WhyChooseUsSection from './components/WhyChooseUsSection';
 import PricingSection from './components/PricingSection';
 import LogoCloud from './components/LogoCloud';
-import TestimonialsSection from './components/TestimonialsSection';
+import WorkSection from './components/WorkSection';
 import FAQSection from './components/FAQSection';
 import ServicesPage from './pages/ServicesPage';
 import AboutPage from './pages/AboutPage';
+import { SITE_URL, PAGE_META } from './pageMeta';
 import './index.css';
 
 import ZalcoLogo from './assets/logos/ZalcoLogo.svg';
@@ -44,6 +45,38 @@ function FadeSection({ children, className = '', delay = 0 }) {
     );
 }
 
+
+/* ─── Route effects: scroll to top + per-page title/description/canonical ─── */
+const LINKEDIN_URL = 'https://www.linkedin.com/company/zalco-technologies';
+const CONTACT_EMAIL = 'admin@zalco.io';
+const CONTACT_PHONE_DISPLAY = '+91 841 784 2117';
+const CONTACT_PHONE_TEL = '+918417842117';
+
+function RouteEffects() {
+    const { pathname, hash } = useLocation();
+
+    useEffect(() => {
+        if (!hash) window.scrollTo({ top: 0, behavior: 'instant' });
+    }, [pathname, hash]);
+
+    useEffect(() => {
+        const key = pathname.replace(/\/+$/, '') || '/';
+        const meta = PAGE_META[key] || PAGE_META['/'];
+        const url = `${SITE_URL}${key === '/' ? '/' : `${key}/`}`;
+        document.title = meta.title;
+        const set = (selector, attr, value) => {
+            const el = document.head.querySelector(selector);
+            if (el) el.setAttribute(attr, value);
+        };
+        set('meta[name="description"]', 'content', meta.description);
+        set('link[rel="canonical"]', 'href', url);
+        set('meta[property="og:url"]', 'content', url);
+        set('meta[property="og:title"]', 'content', meta.title);
+        set('meta[property="og:description"]', 'content', meta.description);
+    }, [pathname]);
+
+    return null;
+}
 
 /* ─── Highlight Pill Component ─── */
 function HighlightPill({ children, color = 'blue' }) {
@@ -103,12 +136,14 @@ function App() {
     ];
     return (
         <>
+            <RouteEffects />
+
             {/* ─── Header ─── */}
             <header role="banner" className={`global-header ${mobileMenuOpen ? 'menu-open' : ''}`}>
                 <div className="container header-inner">
                     <Link to="/" className="header-logo">
                         <img src={ZalcoLogo} alt="Zalco" style={{ height: '3rem', width: 'auto' }} />
-                        <h1 className="logo-text">Zalco</h1>
+                        <span className="logo-text">Zalco</span>
                     </Link>
 
                     {/* Hamburger — visible only on mobile via CSS */}
@@ -136,10 +171,9 @@ function App() {
                         </div>
                         <div className="nav-footer">
                             <div className="bento-social-icons">
-                                <a href="#" aria-label="LinkedIn"><Icon icon="mdi:linkedin" /></a>
-                                <a href="#" aria-label="Twitter / X"><Icon icon="mdi:twitter" /></a>
+                                <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" aria-label="Zalco Technologies on LinkedIn"><Icon icon="mdi:linkedin" /></a>
                             </div>
-                            <p className="nav-copyright"> © 2026 Zalco Technologies Pvt. Ltd.</p>
+                            <p className="nav-copyright">© {new Date().getFullYear()} Zalco Technologies Pvt. Ltd.</p>
                         </div>
                     </div>
                 </div>
@@ -190,7 +224,7 @@ function App() {
                         <ProcessSection />
                         <WhyChooseUsSection />
                         <PricingSection />
-                        <TestimonialsSection />
+                        <WorkSection />
                         <LogoCloud />
                         <FAQSection />
 
@@ -233,19 +267,23 @@ function App() {
                             <Link to="/about">About</Link>
                         </div>
                         <div className="bento-link-col bento-social-col">
-                            <h4>Social</h4>
-                            <a href="mailto:support@zalco.com">admin@zalco.io</a>
-                            <a href="tel:+1023722742444">+91 841 784 2117</a>
+                            <h4>Contact</h4>
+                            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+                            <a href={`tel:${CONTACT_PHONE_TEL}`}>{CONTACT_PHONE_DISPLAY}</a>
                             <div className="bento-social-icons">
-                                <a href="#" aria-label="LinkedIn"><Icon icon="mdi:linkedin" /></a>
-                                <a href="#" aria-label="Twitter / X"><Icon icon="mdi:twitter" /></a>
+                                <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" aria-label="Zalco Technologies on LinkedIn"><Icon icon="mdi:linkedin" /></a>
                             </div>
                         </div>
                     </div>
 
                     <div className="bento-copyright-pill">
-                        © 2026 Zalco Technologies Pvt. Ltd.
+                        © {new Date().getFullYear()} Zalco Technologies Pvt. Ltd.
                     </div>
+
+                    <p className="bento-legal">
+                        Zalco Technologies Private Limited · CIN U72900UP2022PTC175108<br />
+                        Registered office: 387/54 Kachha Bagh, Sahadatganj, Near Old Chabutra, Lucknow, Uttar Pradesh 226003, India
+                    </p>
                 </div>
             </footer>
         </>
