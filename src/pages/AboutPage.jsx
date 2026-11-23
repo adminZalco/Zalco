@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import RippleGrid from '../components/RippleGrid';
 import '../index.css';
@@ -55,44 +56,34 @@ const coreValues = [
 
 const teamMembers = [
     {
-        name: 'Poornanand Verma',
-        role: 'Senior Software Engineer',
-        image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Marcus&backgroundColor=b6e3f4'
-    },
-    {
         name: 'Prateek Singh',
-        role: 'Senior Product Designer',
+        role: 'Director & CEO',
         image: 'https://api.dicebear.com/7.x/notionists/svg?seed=David&backgroundColor=c0aede'
     },
     {
-        name: 'Amit Pandey',
-        role: 'Senior Devops Engineer',
-        image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Arthur&backgroundColor=ffd5dc'
-    },
-    {
-        name: 'Kirti Awasthi',
-        role: 'Senior Cloud Engineer',
-        image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Nolan&backgroundColor=f8d7da'
-    },
-    {
-        name: 'Avinash Tripathi',
-        role: 'Senior Software Engineer',
-        image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Justin&backgroundColor=d1e7dd'
-    },
-    {
-        name: 'Ajay Singh',
-        role: 'Web Designer',
-        image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Sarah&backgroundColor=ffdfbf'
-    },
-    {
-        name: 'Anurag Verma',
-        role: 'Backend Engineer',
-        image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Cody&backgroundColor=fff3cd'
+        name: 'Poornanand Verma',
+        role: 'Director & CTO',
+        image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Marcus&backgroundColor=b6e3f4'
     },
     {
         name: 'Vikas Gupta',
-        role: 'Frontend Engineer',
+        role: 'Software Engineer',
         image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Oliver&backgroundColor=cff4fc'
+    },
+    {
+        name: 'Suryansh Pal',
+        role: 'Software Engineer',
+        image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Arthur&backgroundColor=ffd5dc'
+    },
+    {
+        name: 'Anurag Verma',
+        role: 'Technical Sales',
+        image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Cody&backgroundColor=fff3cd'
+    },
+    {
+        name: 'Abhishek Verma',
+        role: 'AI/ML Engineer',
+        image: 'https://api.dicebear.com/7.x/notionists/svg?seed=Justin&backgroundColor=d1e7dd'
     }
 ];
 
@@ -130,33 +121,26 @@ export default function AboutPage() {
                 <div className="container services-hero-inner">
                     <FadeSection delay={160}>
                         <h1 className="services-hero-heading">
-                            An elite product task force for<br />
-                            <span className="services-hero-accent">ambitious teams</span>
+                            Your product team for<br />
+                            <span className="services-hero-accent">design, build and scale</span>
                         </h1>
                     </FadeSection>
                     <FadeSection delay={240}>
                         <p className="services-hero-sub">
-                            Zalco was founded to bridge the gap between brilliant ideas and production-ready execution. We don't just write code; we engineer competitive advantages.
+                            Zalco Technologies was founded in Lucknow in 2022 to help startups and businesses turn ideas into production-ready software, from the first design to a live, monitored deployment.
                         </p>
                     </FadeSection>
                     <FadeSection delay={320}>
                         <div className="hero-actions" style={{ marginTop: 0 }}>
                             <button
                                 className="brutalist-button brutalist-button--dark"
-                                onClick={() => {
-                                    const contactSection = document.getElementById('contact-form');
-                                    if (contactSection) {
-                                        contactSection.scrollIntoView({ behavior: 'smooth' });
-                                    } else {
-                                        window.location.href = '/#contact';
-                                    }
-                                }}
+                                onClick={() => window.open('https://cal.com/zalco/15min', '_blank', 'noopener')}
                             >
-                                Get Started
+                                Book a Discovery Call
                             </button>
-                            <a href="/services" className="text-link">
+                            <Link to="/services" className="text-link">
                                 Our Services <Icon icon="solar:arrow-right-up-bold-duotone" />
-                            </a>
+                            </Link>
                         </div>
                     </FadeSection>
                 </div>
@@ -169,7 +153,7 @@ export default function AboutPage() {
                         <div className="about-mission-text" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
                             <h2>Our Mission</h2>
                             <p className="section-description" style={{ marginTop: '16px', fontSize: 'var(--text-step-1)', color: 'var(--color-text-secondary)' }}>
-                                We believe that great software should not require dealing with fragmented teams, ballooning budgets, or drawn-out timelines. Our goal is to provide top-tier engineering and design under one roof, functioning as an elite product task force for our clients.
+                                We believe that great software should not require dealing with fragmented teams, ballooning budgets, or drawn-out timelines. Our goal is to provide dependable engineering and design under one roof, working as an extension of our clients' own teams.
                             </p>
                         </div>
                     </FadeSection>

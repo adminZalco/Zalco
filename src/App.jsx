@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import RippleGrid from './components/RippleGrid';
 import ServicesSection from './components/ServicesSection';
@@ -7,10 +7,14 @@ import ProcessSection from './components/ProcessSection';
 import WhyChooseUsSection from './components/WhyChooseUsSection';
 import PricingSection from './components/PricingSection';
 import LogoCloud from './components/LogoCloud';
-import TestimonialsSection from './components/TestimonialsSection';
+import WorkSection from './components/WorkSection';
 import FAQSection from './components/FAQSection';
 import ServicesPage from './pages/ServicesPage';
 import AboutPage from './pages/AboutPage';
+import WorkPage from './pages/WorkPage';
+import ContactPage from './pages/ContactPage';
+import { company, whatsappLink } from './data/company';
+import { SITE_URL, PAGE_META } from './pageMeta';
 import './index.css';
 
 import ZalcoLogo from './assets/logos/ZalcoLogo.svg';
@@ -44,6 +48,50 @@ function FadeSection({ children, className = '', delay = 0 }) {
     );
 }
 
+
+/* ─── Route effects: scroll to top + per-page title/description/canonical ─── */
+
+function RouteEffects() {
+    const { pathname, hash } = useLocation();
+
+    useEffect(() => {
+        if (!hash) {
+            window.scrollTo({ top: 0, behavior: 'instant' });
+            return undefined;
+        }
+        // Wait for the page to render, then jump to the section (e.g. /#pricing)
+        const timer = setTimeout(() => {
+            const el = document.getElementById(decodeURIComponent(hash.slice(1)));
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 120);
+        return () => clearTimeout(timer);
+    }, [pathname, hash]);
+
+    useEffect(() => {
+        const key = pathname.replace(/\/+$/, '') || '/';
+        const meta = PAGE_META[key] || PAGE_META['/'];
+        const url = `${SITE_URL}${key === '/' ? '/' : `${key}/`}`;
+        document.title = meta.title;
+        const set = (selector, attr, value) => {
+            const el = document.head.querySelector(selector);
+            if (el) el.setAttribute(attr, value);
+        };
+        set('meta[name="description"]', 'content', meta.description);
+        set('link[rel="canonical"]', 'href', url);
+        set('meta[property="og:url"]', 'content', url);
+        set('meta[property="og:title"]', 'content', meta.title);
+        set('meta[property="og:description"]', 'content', meta.description);
+    }, [pathname]);
+
+    return null;
+}
+
+const navLinks = [
+    { to: '/services', label: 'Services' },
+    { to: '/work', label: 'Work' },
+    { to: '/#pricing', label: 'Pricing' },
+    { to: '/about', label: 'About' },
+];
 
 /* ─── Highlight Pill Component ─── */
 function HighlightPill({ children, color = 'blue' }) {
@@ -97,18 +145,20 @@ function App() {
         return () => { document.body.style.overflow = ''; };
     }, [mobileMenuOpen]);
 
-    const marqueeItems = [
-        '✦ Web Design', '✦ Web App Development', '✦ Mobile App Design', '✦ Mobile App Development', '✦ DevOps Services',
-        '✦ Web Design', '✦ Web App Development', '✦ Mobile App Design', '✦ Mobile App Development', '✦ DevOps Services',
-    ];
+    const marqueeItems = ['✦ Web Design', '✦ Web App Development', '✦ Mobile App Design', '✦ Mobile App Development', '✦ DevOps Services'];
+    // Each half of the strip repeats the list so it is wider than large screens (up to ~2560px).
+    // The track holds two identical halves and slides by exactly one half, so the loop is seamless.
+    const marqueeHalf = Array.from({ length: 3 }, () => marqueeItems).flat();
     return (
         <>
+            <RouteEffects />
+
             {/* ─── Header ─── */}
             <header role="banner" className={`global-header ${mobileMenuOpen ? 'menu-open' : ''}`}>
                 <div className="container header-inner">
                     <Link to="/" className="header-logo">
                         <img src={ZalcoLogo} alt="Zalco" style={{ height: '3rem', width: 'auto' }} />
-                        <h1 className="logo-text">Zalco</h1>
+                        <span className="logo-text">Zalco</span>
                     </Link>
 
                     {/* Hamburger — visible only on mobile via CSS */}
@@ -124,22 +174,20 @@ function App() {
 
                     <div className={`nav-wrapper ${mobileMenuOpen ? 'is-open' : ''}`}>
                         <nav aria-label="Primary Navigation" className="primary-nav">
-                            <Link to="/services" onClick={() => setMobileMenuOpen(false)}>
-                                <span className="nav-number">01</span> Services
-                            </Link>
-                            <Link to="/about" onClick={() => setMobileMenuOpen(false)}>
-                                <span className="nav-number">02</span> About
-                            </Link>
+                            {navLinks.map((item, i) => (
+                                <Link key={item.to} to={item.to} onClick={() => setMobileMenuOpen(false)}>
+                                    <span className="nav-number">{String(i + 1).padStart(2, '0')}</span> {item.label}
+                                </Link>
+                            ))}
                         </nav>
                         <div className="header-actions">
-                            <button className="brutalist-button brutalist-button--dark header-contact-btn" onClick={() => window.open('https://cal.com/zalco/15min', '_blank')}>Contact</button>
+                            <Link to="/contact" className="brutalist-button brutalist-button--dark header-contact-btn" onClick={() => setMobileMenuOpen(false)}>Contact</Link>
                         </div>
                         <div className="nav-footer">
                             <div className="bento-social-icons">
-                                <a href="#" aria-label="LinkedIn"><Icon icon="mdi:linkedin" /></a>
-                                <a href="#" aria-label="Twitter / X"><Icon icon="mdi:twitter" /></a>
+                                <a href={company.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Zalco Technologies on LinkedIn"><Icon icon="mdi:linkedin" /></a>
                             </div>
-                            <p className="nav-copyright"> © 2026 Zalco Technologies Pvt. Ltd.</p>
+                            <p className="nav-copyright">© {new Date().getFullYear()} Zalco Technologies Pvt. Ltd.</p>
                         </div>
                     </div>
                 </div>
@@ -148,6 +196,8 @@ function App() {
             <Routes>
                 <Route path="/services" element={<ServicesPage />} />
                 <Route path="/about" element={<AboutPage />} />
+                <Route path="/work" element={<WorkPage />} />
+                <Route path="/contact" element={<ContactPage />} />
                 <Route path="*" element={
                     <main id="main-content" role="main">
                         {/* ─── Hero ─── */}
@@ -180,17 +230,21 @@ function App() {
                         {/* ─── Marquee ─── */}
                         <div className="marquee-strip" aria-hidden="true">
                             <div className="marquee-track">
-                                {marqueeItems.map((item, i) => (
-                                    <span key={i} className="marquee-item">{item}</span>
+                                {[0, 1].map((half) => (
+                                    <div key={half} className="marquee-group">
+                                        {marqueeHalf.map((item, i) => (
+                                            <span key={i} className="marquee-item">{item}</span>
+                                        ))}
+                                    </div>
                                 ))}
                             </div>
                         </div>
 
                         <ServicesSection />
+                        <WorkSection />
                         <ProcessSection />
                         <WhyChooseUsSection />
                         <PricingSection />
-                        <TestimonialsSection />
                         <LogoCloud />
                         <FAQSection />
 
@@ -229,25 +283,40 @@ function App() {
                         <div className="bento-link-col">
                             <h4>Company</h4>
                             <Link to="/">Home</Link>
-                            <Link to="/services">Services</Link>
-                            <Link to="/about">About</Link>
+                            {navLinks.map((item) => (
+                                <Link key={item.to} to={item.to}>{item.label}</Link>
+                            ))}
+                            <Link to="/contact">Contact</Link>
                         </div>
                         <div className="bento-link-col bento-social-col">
-                            <h4>Social</h4>
-                            <a href="mailto:support@zalco.com">admin@zalco.io</a>
-                            <a href="tel:+1023722742444">+91 841 784 2117</a>
+                            <h4>Contact</h4>
+                            <a href={`mailto:${company.email}`}>{company.email}</a>
+                            <a href={`tel:${company.phoneTel}`}>{company.phoneDisplay}</a>
+                            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">WhatsApp us</a>
                             <div className="bento-social-icons">
-                                <a href="#" aria-label="LinkedIn"><Icon icon="mdi:linkedin" /></a>
-                                <a href="#" aria-label="Twitter / X"><Icon icon="mdi:twitter" /></a>
+                                <a href={company.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Zalco Technologies on LinkedIn"><Icon icon="mdi:linkedin" /></a>
                             </div>
                         </div>
                     </div>
 
                     <div className="bento-copyright-pill">
-                        © 2026 Zalco Technologies Pvt. Ltd.
+                        © {new Date().getFullYear()} Zalco Technologies Pvt. Ltd.
                     </div>
+
                 </div>
             </footer>
+
+            {/* ─── Floating WhatsApp button ─── */}
+            <a
+                href={whatsappLink}
+                className="whatsapp-fab"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Chat with Zalco on WhatsApp"
+                title="Chat with Zalco on WhatsApp"
+            >
+                <Icon icon="ic:baseline-whatsapp" aria-hidden="true" />
+            </a>
         </>
     );
 }
